@@ -4,6 +4,9 @@ Este projeto tem como objetivo implementar um software gerador de chaveamento pa
 
 Com as informações, o software fará a geração dos jogos e disponibilizará ao usuário um local onde ele poderá indicar os vencedores de cada jogo, chegando até a final indicando o campeão.
 
+# Protótipo de telas - Figma
+https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?type=design&node-id=3%3A5&mode=design&t=oFvLRi8P61AyVpTJ-1
+
 ## Endereço de Deploy - GitHub Pages
 
 //TODO
