@@ -11,6 +11,7 @@ import * as M from 'materialize-css';
 export class MenuComponent implements AfterViewInit {
   icon = "layers";
   title = "Chaveamento de campeonatos";
+  notLogged = false;
 
   @ViewChild('mobile') sideNav?: ElementRef;
   @ViewChild('dropdownCadastro') dropDown?: ElementRef;
