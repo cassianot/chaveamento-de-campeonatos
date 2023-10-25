@@ -7,8 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CadastroCampeonatoComponent } from './components/cadastro-campeonato/cadastro-campeonato.component';
-import { CadastroCategoriasComponent } from './components/cadastro-categorias/cadastro-categorias.component';
+import { CadastroCampeonatoComponent } from './components/campeonatos/cadastrocampeonato/cadastrocampeonato.component';
+import { CadastroCategoriasComponent } from './components/categorias/cadastrocategorias/cadastrocategoria.component';
+import { ListacampeonatosComponent } from './components/campeonatos/listacampeonatos/listacampeonatos.component';
+import { ListacategoriasComponent } from './components/categorias/listacategorias/listacategorias.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { CadastroCategoriasComponent } from './components/cadastro-categorias/ca
     MenuComponent,
     FooterComponent,
     CadastroCampeonatoComponent,
-    CadastroCategoriasComponent
+    CadastroCategoriasComponent,
+    ListacampeonatosComponent,
+    ListacategoriasComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,

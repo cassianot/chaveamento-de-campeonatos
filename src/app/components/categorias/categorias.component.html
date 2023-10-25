@@ -1,0 +1,7 @@
+<div class="container contact">
+
+    <app-cadastro-categorias [listaCategorias]="listaCategorias" (exibeMensagem)="exibirMensagem($event);"></app-cadastro-categorias>
+    <app-listacategorias [listaCategorias]="listaCategorias" (exibeMensagem)="exibirMensagem($event);"></app-listacategorias>
+    <router-outlet></router-outlet>
+    
+</div>
