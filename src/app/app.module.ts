@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     NgxMaskModule.forRoot()
   ],
   providers: [],

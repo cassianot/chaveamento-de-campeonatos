@@ -16,9 +16,20 @@
             <button
             class="btn waves-effect waves-light light-blue darken-4"
             type="submit"
-            (click)="removerCategoria(cat);"
+            (click)="ativarDesativarCategoria(cat);"
           >
-            Remover
+            <div *ngIf="cat.ativo == true; then thenBlock else elseBlock"></div>
+              <ng-template minW #thenBlock>Desativar</ng-template >
+              <ng-template #elseBlock>Ativar</ng-template >
+            </button>
+          </td>
+          <td>
+            <button
+            class="btn waves-effect waves-light light-blue darken-4"
+            type="submit"
+            (click)="editarCategoria(cat);"
+          >
+            Editar
             </button>
           </td>
       </tr>

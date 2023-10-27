@@ -1,7 +1,19 @@
 <div class="container contact">
 
-    <app-cadastro-categorias [listaCategorias]="listaCategorias" (exibeMensagem)="exibirMensagem($event);"></app-cadastro-categorias>
-    <app-listacategorias [listaCategorias]="listaCategorias" (exibeMensagem)="exibirMensagem($event);"></app-listacategorias>
+    <app-cadastro-categorias 
+            [listaCategorias]="listaCategorias"
+            [categoria]="categoria"
+            [atualiza]="atualiza"
+            (exibeMensagem)="exibirMensagem($event)"
+            (salvaCategoria)="salvarCategoria($event)"
+    ></app-cadastro-categorias>
+
+    <app-listacategorias 
+            [listaCategorias]="listaCategorias" 
+            (exibeMensagem)="exibirMensagem($event)"
+            (ativaDesativarCategoria)="ativarDesativarCategoria($event)"
+            (editaCategoria)="editarCategoria($event)"
+    ></app-listacategorias>
     <router-outlet></router-outlet>
     
 </div>

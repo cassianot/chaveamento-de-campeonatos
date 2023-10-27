@@ -1,0 +1,40 @@
+{
+  "categoria": [
+    {
+      "id": 1,
+      "nomeCategoria": "Sub 13",
+      "descricaoCategoria": "Atletas com até 13 anos de idade.",
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "nomeCategoria": "Sub 15",
+      "descricaoCategoria": "Atletas com até 15 anos de idade.",
+      "ativo": true
+    },
+    {
+      "id": 3,
+      "nomeCategoria": "Sub 17",
+      "descricaoCategoria": "Atletas com até 17 anos de idade.",
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "nomeCategoria": "Sub 20",
+      "descricaoCategoria": "Atletas com até 20 anos de idade.",
+      "ativo": true
+    },
+    {
+      "nomeCategoria": "asd",
+      "descricaoCategoria": "asdas",
+      "id": 5,
+      "ativo": false
+    },
+    {
+      "nomeCategoria": "111",
+      "descricaoCategoria": "111",
+      "id": 6,
+      "ativo": false
+    }
+  ]
+}

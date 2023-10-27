@@ -24,13 +24,27 @@
             <label class="active" for="input-description">Descrição</label>
           </div>
         </div>
-        <button
-          class="btn waves-effect waves-light light-blue darken-4"
-          type="submit"
-          (click)="this.cadastraCategoria();"
-        >
-          Salvar
-          <i class="material-icons right">send</i>
-        </button>
+        <div class="row">
+          <div class="col s3">
+            <button
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              (click)="this.cadastraCategoria();"
+            >
+              Salvar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <div class="col s9">
+            <button
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              (click)="this.limpaFormulario();"
+            >
+              Limpar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
       </form>
     </div>  

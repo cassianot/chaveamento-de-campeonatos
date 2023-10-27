@@ -1,14 +1,13 @@
 export class Categoria {
-    id?: number;
+    id? : number
     nomeCategoria?: string;
     descricaoCategoria?: string;
+    ativo?: boolean
 
-    constructor(nomeCategoria: string, descricaoCategoria: string) {
+    constructor(nomeCategoria: string, descricaoCategoria: string, ativo: boolean) {
       this.nomeCategoria = nomeCategoria;
       this.descricaoCategoria = descricaoCategoria;
+      this.ativo = ativo;
     }
 
-    setId(id: number){
-      this.id = id;
-    }
   }

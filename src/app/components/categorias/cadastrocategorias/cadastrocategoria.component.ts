@@ -10,19 +10,22 @@ import { Categoria } from 'src/app/model/categoria.model';
 })
 export class CadastroCategoriasComponent {
 
-  categoria!: Categoria;
+  @Input() categoria! : Categoria;
+  @Input() atualiza! : boolean;
   @Input() listaCategorias : Array<Categoria> = [];
   @Output() exibeMensagem = new EventEmitter<string>();
+  @Output() salvaCategoria = new EventEmitter<Categoria>();
 
   ngOnInit(){
-    this.categoria = new Categoria("", "");
+    this.categoria = new Categoria("", "", true);
   }
 
   cadastraCategoria() : void {
-    this.categoria.setId(Math.floor(Math.random() * 10000));
-    this.listaCategorias.push(this.categoria);
-    this.exibeMensagem.emit(`Categoria adicionada com sucesso: ${this.categoria.nomeCategoria}`);
-    this.categoria = new Categoria("", "");
+    this.salvaCategoria.emit(this.categoria);
+  }
+
+  limpaFormulario(){
+    this.categoria = new Categoria("", "", true);
   }
 
 }
