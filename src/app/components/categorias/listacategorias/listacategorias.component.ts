@@ -15,7 +15,6 @@ export class ListacategoriasComponent {
   @Output() editaCategoria = new EventEmitter<Categoria>();
 
   ativarDesativarCategoria (cat: Categoria) {
-    console.log(this.atualiza);
     if(!this.atualiza) {
       cat.ativo = !cat.ativo;
       this.ativaDesativarCategoria.emit(cat);

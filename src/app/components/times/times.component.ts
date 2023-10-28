@@ -44,6 +44,7 @@ export class TimesComponent {
       (_time) => {
         this.listaTimes.push(_time);
         this.ordenaLista();
+        this.time = new Time("", "", true);
         this.exibirMensagem(`Time salvo com sucesso: ${time.nomeTime}`);
       },
       (error) => {

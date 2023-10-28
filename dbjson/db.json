@@ -33,20 +33,74 @@
     {
       "nomeCategoria": "111",
       "descricaoCategoria": "1111aaa11111",
-      "ativo": false,
+      "ativo": true,
       "id": 6
+    },
+    {
+      "nomeCategoria": "asd",
+      "descricaoCategoria": "asd",
+      "ativo": true,
+      "id": 7
+    },
+    {
+      "nomeCategoria": "asd",
+      "descricaoCategoria": "asdas",
+      "ativo": true,
+      "id": 8
+    },
+    {
+      "nomeCategoria": "asd",
+      "descricaoCategoria": "asdasd",
+      "ativo": true,
+      "id": 9
+    },
+    {
+      "nomeCategoria": "adas333",
+      "descricaoCategoria": "asda3d3d3",
+      "ativo": true,
+      "id": 10
     }
   ],
   "time": [
     {
       "nomeTime": "Time 1",
       "descricaoTime": "Time 1",
-      "ativo": false,
+      "ativo": true,
       "id": 1
     },
     {
       "nomeTime": "Time 2",
       "descricaoTime": "Time 2.",
+      "ativo": true,
+      "id": 2
+    },
+    {
+      "nomeTime": "asd",
+      "descricaoTime": "asd",
+      "ativo": true,
+      "id": 3
+    },
+    {
+      "nomeTime": "fqf3q3",
+      "descricaoTime": "qf3f3qq3f",
+      "ativo": true,
+      "id": 4
+    }
+  ],
+  "jogador": [
+    {
+      "nomeJogador": "Time 1",
+      "dataNascimento": "Time 1",
+      "cidade": "Time 1",
+      "telefone": "Time 1",
+      "ativo": true,
+      "id": 1
+    },
+    {
+      "nomeJogador": "asd",
+      "dataNascimento": "asd",
+      "cidade": "asd",
+      "telefone": "asd",
       "ativo": true,
       "id": 2
     }

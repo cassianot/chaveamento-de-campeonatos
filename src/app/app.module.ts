@@ -18,6 +18,10 @@ import { TimesComponent } from './components/times/times.component';
 import { CadastrotimesComponent } from './components/times/cadastrotimes/cadastrotimes.component';
 import { ListatimesComponent } from './components/times/listatimes/listatimes.component';
 import { VisualizatimeComponent } from './components/times/visualizatime/visualizatime.component';
+import { JogadoresComponent } from './components/jogadores/jogadores.component';
+import { CadastrajogadorComponent } from './components/jogadores/cadastrajogador/cadastrajogador.component';
+import { ListajogadoresComponent } from './components/jogadores/listajogadores/listajogadores.component';
+import { VisualizajogadorComponent } from './components/jogadores/visualizajogador/visualizajogador.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { VisualizatimeComponent } from './components/times/visualizatime/visuali
     TimesComponent,
     CadastrotimesComponent,
     ListatimesComponent,
-    VisualizatimeComponent
+    VisualizatimeComponent,
+    JogadoresComponent,
+    CadastrajogadorComponent,
+    ListajogadoresComponent,
+    VisualizajogadorComponent
   ],
   imports: [
     BrowserModule,

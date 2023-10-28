@@ -1,0 +1,84 @@
+<h5>Cadastro de Jogador</h5>
+<hr />
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input
+          name="input-jogador"
+          id="input-jogador"
+          type="text"
+          [(ngModel)]="this.jogador.nomeJogador"
+        />
+        <label class="active" for="input-jogador">Nome</label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input
+            name="input-datanascimento"
+            id="input-datanascimento"
+            type="text"
+            [(ngModel)]="this.jogador.dataNascimento"
+            />
+            <label class="active" for="input-jogador">Data de Nascimento</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input
+            name="input-cidade"
+            id="input-cidade"
+            type="text"
+            [(ngModel)]="this.jogador.cidade"
+            />
+            <label class="active" for="input-jogador">Cidade</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input
+            name="input-telefone"
+            id="input-telefone"
+            type="text"
+            [(ngModel)]="this.jogador.telefone"
+            />
+            <label class="active" for="input-jogador">Telefone</label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col s3">
+        <button
+          *ngIf="atualiza == false"
+          class="btn waves-effect waves-light light-blue darken-4"
+          type="submit"
+          (click)="this.cadastraJogador();"
+        >
+          Salvar
+          <i class="material-icons right">send</i>
+        </button>
+        <button
+          *ngIf="atualiza"
+          class="btn waves-effect waves-light light-blue darken-4"
+          type="submit"
+          (click)="this.editaJogador();"
+        >
+          Atualizar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+      <div class="col s9">
+        <button
+          class="btn waves-effect waves-light light-blue darken-4"
+          type="submit"
+          (click)="this.limparFormulario();"
+        >
+        <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
+          <ng-template minW #thenBlock>Cancelar</ng-template >
+          <ng-template #elseBlock>Limpar</ng-template >
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>  

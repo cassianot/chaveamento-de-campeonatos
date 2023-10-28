@@ -43,6 +43,7 @@ export class CategoriasComponent implements OnInit {
       (_categoria) => {
         this.listaCategorias.push(_categoria);
         this.ordenaLista();
+        this.categoria = new Categoria("", "", true);
         this.exibirMensagem(`Categoria salva com sucesso: ${categoria.nomeCategoria}`);
       },
       (error) => {
