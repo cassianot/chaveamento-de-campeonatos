@@ -8,7 +8,7 @@ import { Time } from 'src/app/model/time.model';
 })
 export class ListatimesComponent {
 
-  @Input() listaTimes : Array<Time> = [];
+  @Input() listaTimes : Time[] = [];
   @Input() atualiza! : boolean;
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarTime = new EventEmitter<Time>();

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CampeonatoService } from 'src/app/services/campeonato.service';
@@ -21,6 +21,7 @@ export class CampeonatosComponent implements OnInit {
     this.listaCampeonatos = [];
     this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
     this.atualiza = false;
+
   }
 
   ngOnInit(): void {

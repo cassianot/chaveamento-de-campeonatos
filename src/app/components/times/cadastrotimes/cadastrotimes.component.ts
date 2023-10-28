@@ -9,7 +9,7 @@ import { Time } from 'src/app/model/time.model';
 export class CadastrotimesComponent {
   @Input() time! : Time;
   @Input() atualiza! : boolean;
-  @Input() listaTimes : Array<Time> = [];
+  @Input() listaTimes : Time[] = [];
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaTime = new EventEmitter<Time>();
   @Output() atualizaTime = new EventEmitter<Time>();

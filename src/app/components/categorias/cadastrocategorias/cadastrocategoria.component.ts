@@ -12,7 +12,7 @@ export class CadastroCategoriasComponent {
 
   @Input() categoria! : Categoria;
   @Input() atualiza! : boolean;
-  @Input() listaCategorias : Array<Categoria> = [];
+  @Input() listaCategorias : Categoria[] = [];
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaCategoria = new EventEmitter<Categoria>();
   @Output() atualizaCategoria = new EventEmitter<Categoria>();

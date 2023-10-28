@@ -8,7 +8,7 @@ import { Categoria } from 'src/app/model/categoria.model';
 })
 
 export class ListacategoriasComponent {
-  @Input() listaCategorias : Array<Categoria> = [];
+  @Input() listaCategorias : Categoria[] = [];
   @Input() atualiza! : boolean;
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarCategoria = new EventEmitter<Categoria>();

@@ -16,4 +16,8 @@ export class Categoria {
       return _categoria;
     }
 
+    toString(){
+      return this.nomeCategoria;
+    }
+
   }

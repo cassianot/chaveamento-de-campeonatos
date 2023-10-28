@@ -6,6 +6,8 @@ import { TimesComponent } from './components/times/times.component';
 import { VisualizatimeComponent } from './components/times/visualizatime/visualizatime.component';
 import { JogadoresComponent } from './components/jogadores/jogadores.component';
 import { VisualizajogadorComponent } from './components/jogadores/visualizajogador/visualizajogador.component';
+import { CampeonatosComponent } from './components/campeonatos/campeonatos.component';
+import { VisualizacampeonatoComponent } from './components/campeonatos/visualizacampeonato/visualizacampeonato.component';
 
 const routes: Routes = [
   {path: 'categorias', component: CategoriasComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'times/:id', component: VisualizatimeComponent},
   {path: 'jogadores', component: JogadoresComponent},
   {path: 'jogadores/:id', component: VisualizajogadorComponent},
+  {path: 'campeonatos', component: CampeonatosComponent},
+  {path: 'campeonatos/:id', component: VisualizacampeonatoComponent},
 ];
 
 @NgModule({

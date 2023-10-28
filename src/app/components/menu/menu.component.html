@@ -1,5 +1,5 @@
 <ul id="dropdownCadastro" class="dropdown-content " [hidden]="notLogged">
-  <li><a href="#!">Campeonatos</a></li>
+  <li><a [routerLink]="['/campeonatos']">Campeonatos</a></li>
   <li><a [routerLink]="['/categorias']">Categorias</a></li>
   <li><a [routerLink]="['/times']">Times</a></li>
   <li><a [routerLink]="['/jogadores']">Jogadores</a></li>
@@ -25,7 +25,7 @@
       <div class="collapsible-header">Cadastros</div>
       <div class="collapsible-body">
         <ul>
-          <li><a href="#!">Campeonatos</a></li>
+          <li><a [routerLink]="['/campeonatos']">Campeonatos</a></li>
           <li><a [routerLink]="['/categorias']">Categorias</a></li>
           <li><a [routerLink]="['/times']">Times</a></li>
           <li><a [routerLink]="['/jogadores']">Jogadores</a></li>
