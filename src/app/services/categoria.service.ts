@@ -24,6 +24,12 @@ export class CategoriaService {
     );
   }
 
+  getCategoriaById(id: number): Observable<Categoria> {
+    return this.httpClient.get<Categoria>(`${RoutesAPI.CATEGORIA}/${id}`).pipe(
+      catchError(ErrorUtil.handleError)
+    );
+  }
+
   salvarCategoria(categoria: Categoria): Observable<Categoria> {
     return this.httpClient.post<Categoria>(
       `${RoutesAPI.CATEGORIA}`,
@@ -33,7 +39,6 @@ export class CategoriaService {
   }
 
   atualizarCategoria(categoria: Categoria): Observable<Categoria> {
-    console.log(categoria);
     return this.httpClient.put<Categoria>(
       `${RoutesAPI.CATEGORIA}/${categoria.id}`,
       categoria,

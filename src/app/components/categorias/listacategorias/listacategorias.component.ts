@@ -9,18 +9,19 @@ import { Categoria } from 'src/app/model/categoria.model';
 
 export class ListacategoriasComponent {
   @Input() listaCategorias : Array<Categoria> = [];
+  @Input() atualiza! : boolean;
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarCategoria = new EventEmitter<Categoria>();
   @Output() editaCategoria = new EventEmitter<Categoria>();
 
-  removerCategoria(cat: Categoria): void {
-    this.listaCategorias.splice(this.listaCategorias.indexOf(cat), 1);
-    this.exibeMensagem.emit(`Categoria removida com sucesso: ${cat.nomeCategoria}`);
-  }
-
   ativarDesativarCategoria (cat: Categoria) {
-    cat.ativo = !cat.ativo;
-    this.ativaDesativarCategoria.emit(cat);
+    console.log(this.atualiza);
+    if(!this.atualiza) {
+      cat.ativo = !cat.ativo;
+      this.ativaDesativarCategoria.emit(cat);
+    } else {
+      this.exibeMensagem.emit("Não é possível ativar/desativar enquanto está editando uma categoria!");
+    }
   }
 
   editarCategoria(cat: Categoria) {

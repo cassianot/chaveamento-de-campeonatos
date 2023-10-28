@@ -4,11 +4,14 @@
             [listaCategorias]="listaCategorias"
             [categoria]="categoria"
             [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario($event)"
             (exibeMensagem)="exibirMensagem($event)"
             (salvaCategoria)="salvarCategoria($event)"
+            (atualizaCategoria)="atualizarCategoria($event)"
     ></app-cadastro-categorias>
 
     <app-listacategorias 
+            [atualiza]="atualiza"
             [listaCategorias]="listaCategorias" 
             (exibeMensagem)="exibirMensagem($event)"
             (ativaDesativarCategoria)="ativarDesativarCategoria($event)"

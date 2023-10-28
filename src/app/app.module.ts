@@ -13,6 +13,7 @@ import { CadastroCategoriasComponent } from './components/categorias/cadastrocat
 import { ListacampeonatosComponent } from './components/campeonatos/listacampeonatos/listacampeonatos.component';
 import { ListacategoriasComponent } from './components/categorias/listacategorias/listacategorias.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
+import { VisualizaCategoriaComponent } from './components/categorias/visualiza-categoria/visualiza-categoria.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
     CadastroCategoriasComponent,
     ListacampeonatosComponent,
     ListacategoriasComponent,
-    CategoriasComponent
+    CategoriasComponent,
+    VisualizaCategoriaComponent
   ],
   imports: [
     BrowserModule,

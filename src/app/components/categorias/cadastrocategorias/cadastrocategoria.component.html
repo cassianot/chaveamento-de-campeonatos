@@ -27,6 +27,7 @@
         <div class="row">
           <div class="col s3">
             <button
+              *ngIf="atualiza == false"
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
               (click)="this.cadastraCategoria();"
@@ -34,14 +35,25 @@
               Salvar
               <i class="material-icons right">send</i>
             </button>
+            <button
+              *ngIf="atualiza"
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              (click)="this.editaCategoria();"
+            >
+              Atualizar
+              <i class="material-icons right">send</i>
+            </button>
           </div>
           <div class="col s9">
             <button
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
-              (click)="this.limpaFormulario();"
+              (click)="this.limparFormulario();"
             >
-              Limpar
+            <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
+              <ng-template minW #thenBlock>Cancelar</ng-template >
+              <ng-template #elseBlock>Limpar</ng-template >
               <i class="material-icons right">send</i>
             </button>
           </div>

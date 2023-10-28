@@ -10,4 +10,10 @@ export class Categoria {
       this.ativo = ativo;
     }
 
+    public static clone(categoria: Categoria) {
+      let _categoria : Categoria = new Categoria (categoria.nomeCategoria!, categoria.descricaoCategoria!, categoria.ativo!);
+      _categoria.id = categoria.id!;
+      return _categoria;
+    }
+
   }

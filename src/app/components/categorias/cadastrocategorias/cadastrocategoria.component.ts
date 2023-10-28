@@ -15,6 +15,8 @@ export class CadastroCategoriasComponent {
   @Input() listaCategorias : Array<Categoria> = [];
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaCategoria = new EventEmitter<Categoria>();
+  @Output() atualizaCategoria = new EventEmitter<Categoria>();
+  @Output() limpaFormulario = new EventEmitter<string>();
 
   ngOnInit(){
     this.categoria = new Categoria("", "", true);
@@ -24,8 +26,12 @@ export class CadastroCategoriasComponent {
     this.salvaCategoria.emit(this.categoria);
   }
 
-  limpaFormulario(){
-    this.categoria = new Categoria("", "", true);
+  editaCategoria() : void {
+    this.atualizaCategoria.emit(this.categoria);
+  }
+
+  limparFormulario(){
+    this.limpaFormulario.emit("");
   }
 
 }
