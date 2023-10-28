@@ -8,9 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CadastroCampeonatoComponent } from './components/campeonatos/cadastrocampeonato/cadastrocampeonato.component';
 import { CadastroCategoriasComponent } from './components/categorias/cadastrocategorias/cadastrocategoria.component';
-import { ListacampeonatosComponent } from './components/campeonatos/listacampeonatos/listacampeonatos.component';
 import { ListacategoriasComponent } from './components/categorias/listacategorias/listacategorias.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { VisualizaCategoriaComponent } from './components/categorias/visualiza-categoria/visualiza-categoria.component';
@@ -22,6 +20,10 @@ import { JogadoresComponent } from './components/jogadores/jogadores.component';
 import { CadastrajogadorComponent } from './components/jogadores/cadastrajogador/cadastrajogador.component';
 import { ListajogadoresComponent } from './components/jogadores/listajogadores/listajogadores.component';
 import { VisualizajogadorComponent } from './components/jogadores/visualizajogador/visualizajogador.component';
+import { CampeonatosComponent } from './components/campeonatos/campeonatos.component';
+import { CadastrocampeonatosComponent } from './components/campeonatos/cadastrocampeonatos/cadastrocampeonatos.component';
+import { VisualizacampeonatoComponent } from './components/campeonatos/visualizacampeonato/visualizacampeonato.component';
+import { ListacampeonatosComponent } from './components/campeonatos/listacampeonatos/listacampeonatos.component';
 
 
 @NgModule({
@@ -29,9 +31,7 @@ import { VisualizajogadorComponent } from './components/jogadores/visualizajogad
     AppComponent,
     MenuComponent,
     FooterComponent,
-    CadastroCampeonatoComponent,
     CadastroCategoriasComponent,
-    ListacampeonatosComponent,
     ListacategoriasComponent,
     CategoriasComponent,
     VisualizaCategoriaComponent,
@@ -42,7 +42,11 @@ import { VisualizajogadorComponent } from './components/jogadores/visualizajogad
     JogadoresComponent,
     CadastrajogadorComponent,
     ListajogadoresComponent,
-    VisualizajogadorComponent
+    VisualizajogadorComponent,
+    CampeonatosComponent,
+    CadastrocampeonatosComponent,
+    VisualizacampeonatoComponent,
+    ListacampeonatosComponent
   ],
   imports: [
     BrowserModule,

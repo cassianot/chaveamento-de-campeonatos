@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Time } from 'src/app/model/time.model';
 import { TimesService } from 'src/app/services/times.service';
 
@@ -7,7 +7,7 @@ import { TimesService } from 'src/app/services/times.service';
   templateUrl: './times.component.html',
   styleUrls: ['./times.component.css']
 })
-export class TimesComponent {
+export class TimesComponent implements OnInit {
 
   listaTimes: Time[];
   time: Time;
