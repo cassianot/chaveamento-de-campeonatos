@@ -36,5 +36,19 @@
       "ativo": false,
       "id": 6
     }
+  ],
+  "time": [
+    {
+      "nomeTime": "Time 1",
+      "descricaoTime": "Time 1",
+      "ativo": false,
+      "id": 1
+    },
+    {
+      "nomeTime": "Time 2",
+      "descricaoTime": "Time 2.",
+      "ativo": true,
+      "id": 2
+    }
   ]
 }

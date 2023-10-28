@@ -14,6 +14,10 @@ import { ListacampeonatosComponent } from './components/campeonatos/listacampeon
 import { ListacategoriasComponent } from './components/categorias/listacategorias/listacategorias.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { VisualizaCategoriaComponent } from './components/categorias/visualiza-categoria/visualiza-categoria.component';
+import { TimesComponent } from './components/times/times.component';
+import { CadastrotimesComponent } from './components/times/cadastrotimes/cadastrotimes.component';
+import { ListatimesComponent } from './components/times/listatimes/listatimes.component';
+import { VisualizatimeComponent } from './components/times/visualizatime/visualizatime.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { VisualizaCategoriaComponent } from './components/categorias/visualiza-c
     ListacampeonatosComponent,
     ListacategoriasComponent,
     CategoriasComponent,
-    VisualizaCategoriaComponent
+    VisualizaCategoriaComponent,
+    TimesComponent,
+    CadastrotimesComponent,
+    ListatimesComponent,
+    VisualizatimeComponent
   ],
   imports: [
     BrowserModule,

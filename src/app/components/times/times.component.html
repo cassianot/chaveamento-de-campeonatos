@@ -1,0 +1,22 @@
+<div class="container contact">
+
+    <app-cadastrotimes
+            [listaTimes]="listaTimes"
+            [time]="time"
+            [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario($event)"
+            (exibeMensagem)="exibirMensagem($event)"
+            (salvaTime)="salvarTime($event)"
+            (atualizaTime)="atualizarTime($event)"
+    ></app-cadastrotimes>
+
+    <app-listatimes 
+            [atualiza]="atualiza"
+            [listaTimes]="listaTimes" 
+            (exibeMensagem)="exibirMensagem($event)"
+            (ativaDesativarTime)="ativarDesativarTime($event)"
+            (editaTime)="editarTime($event)"
+    ></app-listatimes>
+    <router-outlet></router-outlet>
+    
+</div>
