@@ -4,14 +4,9 @@ import { CadastroCampeonatoComponent } from './components/campeonatos/cadastroca
 import { CategoriasComponent } from './components/categorias/categorias.component';
 
 const routes: Routes = [
-  {
-    path: 'categorias',
-    component: CategoriasComponent,
-  },
-  {
-    path: 'cadastrocampeonatos',
-    component: CadastroCampeonatoComponent,
-  },
+  {path: 'categorias', component: CategoriasComponent},
+  {path: 'categorias/:id', component: CategoriasComponent},
+  {path: 'cadastrocampeonatos',component: CadastroCampeonatoComponent},
 ];
 
 @NgModule({

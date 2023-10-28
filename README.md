@@ -40,4 +40,5 @@ https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?t
 - [ ] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 ## Manual de execução
-//TODO
+
+Para iniciar o dbjson: json-server --watch dbjson/db.json
