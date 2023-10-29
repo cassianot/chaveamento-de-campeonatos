@@ -187,24 +187,10 @@
           "id": 1
         },
         "ativo": true,
-        "iniciado": true,
         "id": 1
       },
+      "TipoCompetidor": "times",
       "GrupoA": [
-        {
-          "nomeTime": "Clube Curitibano",
-          "descricaoTime": "Clube Curitibano",
-          "ativo": true,
-          "id": 3
-        },
-        {
-          "nomeTime": "BME",
-          "descricaoTime": "BME",
-          "ativo": true,
-          "id": 1
-        }
-      ],
-      "GrupoB": [
         {
           "nomeTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
           "descricaoTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
@@ -212,18 +198,32 @@
           "id": 7
         },
         {
-          "nomeTime": "SPORT CLUB DO RECIFE",
-          "descricaoTime": "SPORT CLUB DO RECIFE",
+          "nomeTime": "INSTITUTO VITALIZA - VITA",
+          "descricaoTime": "INSTITUTO VITALIZA - VITA",
           "ativo": true,
-          "id": 11
+          "id": 13
+        }
+      ],
+      "GrupoB": [
+        {
+          "nomeTime": "RECREIO DA JUVENTUDE",
+          "descricaoTime": "RECREIO DA JUVENTUDE",
+          "ativo": true,
+          "id": 15
+        },
+        {
+          "nomeTime": "SESI São Paulo",
+          "descricaoTime": "SESI São Paulo",
+          "ativo": true,
+          "id": 10
         }
       ],
       "GrupoC": [
         {
-          "nomeTime": "AEROCLUBE DO RN",
-          "descricaoTime": "AEROCLUBE DO RN",
+          "nomeTime": "CLUBE FONTE SÃO PAULO",
+          "descricaoTime": "CLUBE FONTE SÃO PAULO",
           "ativo": true,
-          "id": 12
+          "id": 8
         },
         {
           "nomeTime": "ESPORTE CLUBE PINHEIROS",
@@ -234,10 +234,10 @@
       ],
       "GrupoD": [
         {
-          "nomeTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
-          "descricaoTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+          "nomeTime": "SPORT CLUB DO RECIFE",
+          "descricaoTime": "SPORT CLUB DO RECIFE",
           "ativo": true,
-          "id": 5
+          "id": 11
         },
         {
           "nomeTime": "Santa Monica",
@@ -248,74 +248,61 @@
       ],
       "GrupoE": [
         {
-          "nomeTime": "CLUB ATHLETICO PAULISTANO",
-          "descricaoTime": "CLUB ATHLETICO PAULISTANO",
-          "ativo": true,
-          "id": 6
-        },
-        {
           "nomeTime": "Federação Paranaense",
           "descricaoTime": "Federação Paranaense",
           "ativo": true,
           "id": 4
+        },
+        {
+          "nomeTime": "Clube Curitibano",
+          "descricaoTime": "Clube Curitibano",
+          "ativo": true,
+          "id": 3
         }
       ],
       "GrupoF": [
         {
-          "nomeTime": "RECREIO DA JUVENTUDE",
-          "descricaoTime": "RECREIO DA JUVENTUDE",
+          "nomeTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+          "descricaoTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
           "ativo": true,
-          "id": 15
+          "id": 5
         },
         {
-          "nomeTime": "INSTITUTO VITALIZA - VITA",
-          "descricaoTime": "INSTITUTO VITALIZA - VITA",
+          "nomeTime": "BME",
+          "descricaoTime": "BME",
           "ativo": true,
-          "id": 13
+          "id": 1
         }
       ],
       "GrupoG": [
         {
-          "nomeTime": "CLUBE FONTE SÃO PAULO",
-          "descricaoTime": "CLUBE FONTE SÃO PAULO",
+          "nomeTime": "BNB CLUBE DE FORTALEZA",
+          "descricaoTime": "BNB CLUBE DE FORTALEZA",
           "ativo": true,
-          "id": 8
+          "id": 14
         },
+        {
+          "nomeTime": "AEROCLUBE DO RN",
+          "descricaoTime": "AEROCLUBE DO RN",
+          "ativo": true,
+          "id": 12
+        }
+      ],
+      "GrupoH": [
         {
           "nomeTime": "CLUBE FURIA",
           "descricaoTime": "CLUBE FURIA",
           "ativo": true,
           "id": 16
-        }
-      ],
-      "GrupoH": [
-        {
-          "nomeTime": "BNB CLUBE DE FORTALEZA",
-          "descricaoTime": "BNB CLUBE DE FORTALEZA",
-          "ativo": true,
-          "id": 14
         },
         {
-          "nomeTime": "SESI São Paulo",
-          "descricaoTime": "SESI São Paulo",
+          "nomeTime": "CLUB ATHLETICO PAULISTANO",
+          "descricaoTime": "CLUB ATHLETICO PAULISTANO",
           "ativo": true,
-          "id": 10
+          "id": 6
         }
       ],
-      "GrupoI": [
-        {
-          "nomeTime": "BNB CLUBE DE FORTALEZA",
-          "descricaoTime": "BNB CLUBE DE FORTALEZA",
-          "ativo": true,
-          "id": 14
-        },
-        {
-          "nomeTime": "BNB CLUBE DE FORTALEZA",
-          "descricaoTime": "BNB CLUBE DE FORTALEZA",
-          "ativo": true,
-          "id": 14
-        }
-      ],
+      "GrupoI": [],
       "GrupoJ": [],
       "GrupoK": [],
       "GrupoL": [],

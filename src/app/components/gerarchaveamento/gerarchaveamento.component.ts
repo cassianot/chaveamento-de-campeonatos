@@ -101,6 +101,7 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
     Util.shuffle(this.listaCompetidoresSelecionados);
 
     this.chaveamento = new ChaveamentoCampeonato<Time>();
+    this.chaveamento.TipoCompetidor = this.tipoCompetidor;
     this.chaveamento.Campeonato = this.campeonato;
     
     this.chaveamento.GrupoA.push(this.listaCompetidoresSelecionados[0]);
@@ -126,9 +127,6 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
 
     this.chaveamento.GrupoH.push(this.listaCompetidoresSelecionados[14]);
     this.chaveamento.GrupoH.push(this.listaCompetidoresSelecionados[15]);
-
-    this.chaveamento.GrupoI.push(this.listaCompetidoresSelecionados[14]);
-    this.chaveamento.GrupoI.push(this.listaCompetidoresSelecionados[14]);
     
     this.listaChaveamento.visivel = true;
   }

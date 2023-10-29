@@ -26,6 +26,8 @@ import { VisualizacampeonatoComponent } from './components/campeonatos/visualiza
 import { ListacampeonatosComponent } from './components/campeonatos/listacampeonatos/listacampeonatos.component';
 import { GerarchaveamentoComponent } from './components/gerarchaveamento/gerarchaveamento.component';
 import { ListarchaveamentoComponent } from './components/gerarchaveamento/listarchaveamento/listarchaveamento.component';
+import { GestaocampeonatoComponent } from './components/gestaocampeonato/gestaocampeonato.component';
+import { GerirCampeonatoComponent } from './components/gestaocampeonato/gerir-campeonato/gerir-campeonato.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { ListarchaveamentoComponent } from './components/gerarchaveamento/listar
     VisualizacampeonatoComponent,
     ListacampeonatosComponent,
     GerarchaveamentoComponent,
-    ListarchaveamentoComponent
+    ListarchaveamentoComponent,
+    GestaocampeonatoComponent,
+    GerirCampeonatoComponent
   ],
   imports: [
     BrowserModule,

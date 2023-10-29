@@ -2,7 +2,9 @@ import { Campeonato } from "./campeonato.model";
 import { Categoria } from "./categoria.model";
 
 export class ChaveamentoCampeonato <T>{
+    id?:number;
     Campeonato: Campeonato = new Campeonato("", new Categoria("", "", true), "", true);
+    TipoCompetidor: string = ""
     GrupoA: T[] = [];
     GrupoB: T[] = [];
     GrupoC: T[] = [];
@@ -24,7 +26,7 @@ export class ChaveamentoCampeonato <T>{
     TerceiroLugar! : T;
     iniciado: boolean = false;
 
-    setVencedorGrupoA(competidor : T) {
+    public setVencedorGrupoA(competidor : T) : void {
         this.GrupoI.push(competidor);
     }
 
@@ -90,5 +92,33 @@ export class ChaveamentoCampeonato <T>{
 
     setTerceiroLugar(competidor: T){
         this.SegundoLugar = competidor;
+    }
+
+    public static clone(chaveamento: ChaveamentoCampeonato<any>) {
+        let _chaveamento : ChaveamentoCampeonato<any> = new ChaveamentoCampeonato ();
+        _chaveamento.id = chaveamento.id;
+        _chaveamento.Campeonato = chaveamento.Campeonato;
+        _chaveamento.TipoCompetidor = chaveamento.TipoCompetidor;
+        _chaveamento.GrupoA = chaveamento.GrupoA;
+        _chaveamento.GrupoB = chaveamento.GrupoB;
+        _chaveamento.GrupoC = chaveamento.GrupoC;
+        _chaveamento.GrupoD = chaveamento.GrupoD;
+        _chaveamento.GrupoE = chaveamento.GrupoE;
+        _chaveamento.GrupoF = chaveamento.GrupoF;
+        _chaveamento.GrupoG = chaveamento.GrupoG;
+        _chaveamento.GrupoH = chaveamento.GrupoH;
+        _chaveamento.GrupoI = chaveamento.GrupoI;
+        _chaveamento.GrupoJ = chaveamento.GrupoJ;
+        _chaveamento.GrupoK = chaveamento.GrupoK;
+        _chaveamento.GrupoL = chaveamento.GrupoL;
+        _chaveamento.GrupoM = chaveamento.GrupoM;
+        _chaveamento.GrupoN = chaveamento.GrupoN;
+        _chaveamento.DisputaTerceiroLugar = chaveamento.DisputaTerceiroLugar;
+        _chaveamento.DisputaFinal = chaveamento.DisputaFinal;
+        _chaveamento.Campeao = chaveamento.Campeao;
+        _chaveamento.SegundoLugar = chaveamento.SegundoLugar;
+        _chaveamento.TerceiroLugar = chaveamento.TerceiroLugar;
+        _chaveamento.iniciado = chaveamento.iniciado;
+        return _chaveamento;
     }
 }
