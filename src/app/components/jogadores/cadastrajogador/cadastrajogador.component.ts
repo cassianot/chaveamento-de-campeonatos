@@ -10,7 +10,7 @@ export class CadastrajogadorComponent implements OnInit {
 
   @Input() jogador! : Jogador;
   @Input() atualiza! : boolean;
-  @Input() listajogadores : Array<Jogador> = [];
+  @Input() listajogadores : Jogador[] = [];
   @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaJogador = new EventEmitter<Jogador>();
   @Output() atualizaJogador = new EventEmitter<Jogador>();

@@ -12,7 +12,7 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down" [hidden]="notLogged">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdownCadastro" #dropdownCadastro>Cadastros<i class="material-icons right">arrow_drop_down</i></a></li>
-      <li><a href="#">Gerar chaveamento</a></li>
+      <li><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></li>
       <li><a href="#">Gestão de campeonatos</a></li>
       <li><a href="#">Relatórios</a></li>
     </ul>
@@ -32,7 +32,7 @@
         </ul>
       </div>
     </li>
-    <li><div class="collapsible-header">Gerar chaveamento</div></li>
+    <li><div class="collapsible-header"><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></div></li>
     <li><div class="collapsible-header"><a href="#">Gestão de campeonatos</a></div></li>
     <li><div class="collapsible-header"><a href="#">Relatórios</a></div></li>
   </ul>

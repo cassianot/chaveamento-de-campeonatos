@@ -55,6 +55,14 @@
       "telefone": "41777779999",
       "ativo": true,
       "id": 2
+    },
+    {
+      "nomeJogador": "Carolina Tomasini",
+      "dataNascimento": "27/01/1977",
+      "cidade": "Curitiba",
+      "telefone": "41999996666",
+      "ativo": true,
+      "id": 3
     }
   ],
   "campeonato": [

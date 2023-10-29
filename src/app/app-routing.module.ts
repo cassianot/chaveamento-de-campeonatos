@@ -8,6 +8,7 @@ import { JogadoresComponent } from './components/jogadores/jogadores.component';
 import { VisualizajogadorComponent } from './components/jogadores/visualizajogador/visualizajogador.component';
 import { CampeonatosComponent } from './components/campeonatos/campeonatos.component';
 import { VisualizacampeonatoComponent } from './components/campeonatos/visualizacampeonato/visualizacampeonato.component';
+import { GerarchaveamentoComponent } from './components/gerarchaveamento/gerarchaveamento.component';
 
 const routes: Routes = [
   {path: 'categorias', component: CategoriasComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'jogadores/:id', component: VisualizajogadorComponent},
   {path: 'campeonatos', component: CampeonatosComponent},
   {path: 'campeonatos/:id', component: VisualizacampeonatoComponent},
+  {path: 'gerarchaveamento', component: GerarchaveamentoComponent},
 ];
 
 @NgModule({
