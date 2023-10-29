@@ -10,6 +10,7 @@
                 name="select-campeonato"
                 id="select-campeonato"
                 #comboCampeonatos
+                [(ngModel)] = "campeonato"
             >
                 <option value="" disabled selected>Escolha o campeonato</option>
                 <option *ngFor="let campeonato of listaCampeonatos" [ngValue]="campeonato" >
@@ -63,6 +64,8 @@
 
     <app-listarchaveamento
       [listaCompetidoresSelecionados] = "listaCompetidoresSelecionados"
+      [tipoCompetidor] = "tipoCompetidor"
+      [chaveamento] = "chaveamento"
     ></app-listarchaveamento>
     <router-outlet></router-outlet>
     

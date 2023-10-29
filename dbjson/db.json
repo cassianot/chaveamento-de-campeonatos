@@ -37,6 +37,90 @@
       "descricaoTime": "Santa Monica",
       "ativo": true,
       "id": 2
+    },
+    {
+      "nomeTime": "Clube Curitibano",
+      "descricaoTime": "Clube Curitibano",
+      "ativo": true,
+      "id": 3
+    },
+    {
+      "nomeTime": "Federação Paranaense",
+      "descricaoTime": "Federação Paranaense",
+      "ativo": true,
+      "id": 4
+    },
+    {
+      "nomeTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+      "descricaoTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+      "ativo": true,
+      "id": 5
+    },
+    {
+      "nomeTime": "CLUB ATHLETICO PAULISTANO",
+      "descricaoTime": "CLUB ATHLETICO PAULISTANO",
+      "ativo": true,
+      "id": 6
+    },
+    {
+      "nomeTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
+      "descricaoTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
+      "ativo": true,
+      "id": 7
+    },
+    {
+      "nomeTime": "CLUBE FONTE SÃO PAULO",
+      "descricaoTime": "CLUBE FONTE SÃO PAULO",
+      "ativo": true,
+      "id": 8
+    },
+    {
+      "nomeTime": "ESPORTE CLUBE PINHEIROS",
+      "descricaoTime": "ESPORTE CLUBE PINHEIROS",
+      "ativo": true,
+      "id": 9
+    },
+    {
+      "nomeTime": "SESI São Paulo",
+      "descricaoTime": "SESI São Paulo",
+      "ativo": true,
+      "id": 10
+    },
+    {
+      "nomeTime": "SPORT CLUB DO RECIFE",
+      "descricaoTime": "SPORT CLUB DO RECIFE",
+      "ativo": true,
+      "id": 11
+    },
+    {
+      "nomeTime": "AEROCLUBE DO RN",
+      "descricaoTime": "AEROCLUBE DO RN",
+      "ativo": true,
+      "id": 12
+    },
+    {
+      "nomeTime": "INSTITUTO VITALIZA - VITA",
+      "descricaoTime": "INSTITUTO VITALIZA - VITA",
+      "ativo": true,
+      "id": 13
+    },
+    {
+      "nomeTime": "BNB CLUBE DE FORTALEZA",
+      "descricaoTime": "BNB CLUBE DE FORTALEZA",
+      "ativo": true,
+      "id": 14
+    },
+    {
+      "nomeTime": "RECREIO DA JUVENTUDE",
+      "descricaoTime": "RECREIO DA JUVENTUDE",
+      "ativo": true,
+      "id": 15
+    },
+    {
+      "nomeTime": "CLUBE FURIA",
+      "descricaoTime": "CLUBE FURIA",
+      "ativo": true,
+      "id": 16
     }
   ],
   "jogador": [
@@ -89,6 +173,158 @@
       },
       "ativo": true,
       "id": 2
+    }
+  ],
+  "chaveamento": [
+    {
+      "Campeonato": {
+        "nomeCampeonato": "Campeonato Brasileiro",
+        "descricaoCampeonato": "Campeonato Brasileiro Sub 13",
+        "categoria": {
+          "nomeCategoria": "Sub 13",
+          "descricaoCategoria": "Atletas com até 13 anos de idade.",
+          "ativo": true,
+          "id": 1
+        },
+        "ativo": true,
+        "iniciado": true,
+        "id": 1
+      },
+      "GrupoA": [
+        {
+          "nomeTime": "Clube Curitibano",
+          "descricaoTime": "Clube Curitibano",
+          "ativo": true,
+          "id": 3
+        },
+        {
+          "nomeTime": "BME",
+          "descricaoTime": "BME",
+          "ativo": true,
+          "id": 1
+        }
+      ],
+      "GrupoB": [
+        {
+          "nomeTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
+          "descricaoTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
+          "ativo": true,
+          "id": 7
+        },
+        {
+          "nomeTime": "SPORT CLUB DO RECIFE",
+          "descricaoTime": "SPORT CLUB DO RECIFE",
+          "ativo": true,
+          "id": 11
+        }
+      ],
+      "GrupoC": [
+        {
+          "nomeTime": "AEROCLUBE DO RN",
+          "descricaoTime": "AEROCLUBE DO RN",
+          "ativo": true,
+          "id": 12
+        },
+        {
+          "nomeTime": "ESPORTE CLUBE PINHEIROS",
+          "descricaoTime": "ESPORTE CLUBE PINHEIROS",
+          "ativo": true,
+          "id": 9
+        }
+      ],
+      "GrupoD": [
+        {
+          "nomeTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+          "descricaoTime": "JOCA CLAUDINO CLUBE DE ESPORTES",
+          "ativo": true,
+          "id": 5
+        },
+        {
+          "nomeTime": "Santa Monica",
+          "descricaoTime": "Santa Monica",
+          "ativo": true,
+          "id": 2
+        }
+      ],
+      "GrupoE": [
+        {
+          "nomeTime": "CLUB ATHLETICO PAULISTANO",
+          "descricaoTime": "CLUB ATHLETICO PAULISTANO",
+          "ativo": true,
+          "id": 6
+        },
+        {
+          "nomeTime": "Federação Paranaense",
+          "descricaoTime": "Federação Paranaense",
+          "ativo": true,
+          "id": 4
+        }
+      ],
+      "GrupoF": [
+        {
+          "nomeTime": "RECREIO DA JUVENTUDE",
+          "descricaoTime": "RECREIO DA JUVENTUDE",
+          "ativo": true,
+          "id": 15
+        },
+        {
+          "nomeTime": "INSTITUTO VITALIZA - VITA",
+          "descricaoTime": "INSTITUTO VITALIZA - VITA",
+          "ativo": true,
+          "id": 13
+        }
+      ],
+      "GrupoG": [
+        {
+          "nomeTime": "CLUBE FONTE SÃO PAULO",
+          "descricaoTime": "CLUBE FONTE SÃO PAULO",
+          "ativo": true,
+          "id": 8
+        },
+        {
+          "nomeTime": "CLUBE FURIA",
+          "descricaoTime": "CLUBE FURIA",
+          "ativo": true,
+          "id": 16
+        }
+      ],
+      "GrupoH": [
+        {
+          "nomeTime": "BNB CLUBE DE FORTALEZA",
+          "descricaoTime": "BNB CLUBE DE FORTALEZA",
+          "ativo": true,
+          "id": 14
+        },
+        {
+          "nomeTime": "SESI São Paulo",
+          "descricaoTime": "SESI São Paulo",
+          "ativo": true,
+          "id": 10
+        }
+      ],
+      "GrupoI": [
+        {
+          "nomeTime": "BNB CLUBE DE FORTALEZA",
+          "descricaoTime": "BNB CLUBE DE FORTALEZA",
+          "ativo": true,
+          "id": 14
+        },
+        {
+          "nomeTime": "BNB CLUBE DE FORTALEZA",
+          "descricaoTime": "BNB CLUBE DE FORTALEZA",
+          "ativo": true,
+          "id": 14
+        }
+      ],
+      "GrupoJ": [],
+      "GrupoK": [],
+      "GrupoL": [],
+      "GrupoM": [],
+      "GrupoN": [],
+      "DisputaTerceiroLugar": [],
+      "DisputaFinal": [],
+      "iniciado": true,
+      "id": 1
     }
   ]
 }

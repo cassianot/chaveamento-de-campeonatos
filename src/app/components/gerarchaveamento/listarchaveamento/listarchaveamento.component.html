@@ -1,199 +1,130 @@
 <span *ngIf="visivel">
-<div class="row">
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s1">
-
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s1">
-
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p> 
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p> 
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p> 
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-
-    </div>
-    <div class="col s1">
-
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s1">
-
-    </div>
-</div>
-<div class="row">
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s2">
-        
-    </div>
-    <div class="col s1">
-        <p>Jogador/Time1</p>
-        <p>Jogador/Time1</p>
-    </div>
-</div>
+    <h5>Fase inicial</h5>
+    <hr />
+    <div class="row">
+        <!-- Chave 1 -->
+          <!-- linha 1-->
+          <div class="col s6">
+            <p class="left-align">Grupo A</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoA[0])}}</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoA[1])}}</p>
+          </div>
+          <div class="col s6">
+            <p class="right-align">Grupo E</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoF[0])}}</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoF[1])}}</p>
+          </div>
+          <!-- /linha 1-->
+    
+          <!-- linha 2-->
+          <div class="col s3"></div>
+          <div class="col s3">
+            <p class="left-align">Grupo I</p>
+            <p class="left-align">Venc. Grupo A</p>
+            <p class="left-align">Venc. Grupo B</p>
+          </div>
+          <div class="col s3">
+            <p class="right-align">Grupo K</p>
+            <p class="right-align">Venc. Grupo F</p>
+            <p class="right-align">Venc. Grupo G</p>
+          </div>
+          <div class="col s3"></div>
+          <!-- /linha 2-->
+    
+          <!-- linha 3-->
+          <div class="col s6">
+            <p class="left-align">Grupo B</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoB[0])}}</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoB[1])}}</p>
+          </div>
+          <div class="col s6">
+            <p class="right-align">Grupo F</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoG[0])}}</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoG[1])}}</p>
+          </div>
+          <!-- /linha 3-->
+        <!-- /Chave 1 -->
+        <!-- Chave 2 -->
+          <!-- linha 1-->
+          <div class="col s6">
+            <p class="left-align">Grupo C</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoC[0])}}</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoC[1])}}</p>
+          </div>
+          <div class="col s6">
+            <p class="right-align">Grupo G</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoH[0])}}</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoH[1])}}</p>
+          </div>
+          <!-- /linha 1-->
+    
+          <!-- linha 2-->
+          <div class="col s3"></div>
+          <div class="col s3">
+            <p class="left-align">Grupo J</p>
+            <p class="left-align">Venc. Grupo C</p>
+            <p class="left-align">Venc. Grupo D</p>
+          </div>
+          <div class="col s3">
+            <p class="right-align">Grupo L</p>
+            <p class="right-align">Venc. Grupo H</p>
+            <p class="right-align">Venc. Grupo I</p>
+          </div>
+          <div class="col s3"></div>
+          <!-- /linha 2-->
+    
+          <!-- linha 3-->
+          <div class="col s6">
+            <p class="left-align">Grupo D</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoD[0])}}</p>
+            <p class="left-align">{{getNomeDoObjeto(this.chaveamento.GrupoD[1])}}</p>
+          </div>
+          <div class="col s6">
+            <p class="right-align">Grupo H</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoI[0])}}</p>
+            <p class="right-align">{{getNomeDoObjeto(this.chaveamento.GrupoI[1])}}</p>
+          </div>
+          <!-- /linha 3-->
+        <!-- /Chave 2 -->
+      </div>
+      <h5>Semifinal</h5>
+      <hr />
+      <div class="row">
+        <div class="col s6">
+            <p class="left-align">Grupo M</p>
+            <p class="left-align">Venc. Grupo I</p>
+            <p class="left-align">Venc. Grupo J</p>
+          </div>
+          <div class="col s6">
+            <p class="right-align">Grupo N</p>
+            <p class="right-align">Venc. Grupo K</p>
+            <p class="right-align">Venc. Grupo L</p>
+          </div>
+      </div>
+      <h5>Disputa 3o Lugar</h5>
+      <hr />
+      <div class="row">
+        <div class="col s12">
+            <p class="left-align">Perdedor Grupo M x Perdedor Grupo N</p>
+        </div>
+      </div>
+      <h5>Final</h5>
+      <hr />
+      <div class="row">
+        <div class="col s12">
+            <p class="left-align">Venc. Grupo M x Venc. Grupo N</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s3">
+          <button
+            class="btn waves-effect waves-light light-blue darken-4"
+            type="submit"
+            (click)="this.iniciarCampeonato();"
+          >
+            Iniciar Campeonato
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
 </span>

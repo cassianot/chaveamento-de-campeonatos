@@ -28,18 +28,18 @@ export class CampeonatoService {
     );
   }
 
-  salvarCampeonato(categoria: Campeonato): Observable<Campeonato> {
+  salvarCampeonato(campeonato: Campeonato): Observable<Campeonato> {
     return this.httpClient.post<Campeonato>(
       `${RoutesAPI.CAMPEONATO}`,
-      categoria,
+      campeonato,
       this.httpOptions
     );
   }
 
-  atualizarCampeonato(categoria: Campeonato): Observable<Campeonato> {
+  atualizarCampeonato(campeonato: Campeonato): Observable<Campeonato> {
     return this.httpClient.put<Campeonato>(
-      `${RoutesAPI.CAMPEONATO}/${categoria.id}`,
-      categoria,
+      `${RoutesAPI.CAMPEONATO}/${campeonato.id}`,
+      campeonato,
       this.httpOptions
     );
   }
