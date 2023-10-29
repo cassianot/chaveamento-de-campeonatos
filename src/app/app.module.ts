@@ -28,6 +28,8 @@ import { GerarchaveamentoComponent } from './components/gerarchaveamento/gerarch
 import { ListarchaveamentoComponent } from './components/gerarchaveamento/listarchaveamento/listarchaveamento.component';
 import { GestaocampeonatoComponent } from './components/gestaocampeonato/gestaocampeonato.component';
 import { GerirCampeonatoComponent } from './components/gestaocampeonato/gerir-campeonato/gerir-campeonato.component';
+import { RelatorioCampeonatoComponent } from './components/relatorio-campeonato/relatorio-campeonato.component';
+import { ListarRelatorioComponent } from './components/relatorio-campeonato/listar-relatorio/listar-relatorio.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { GerirCampeonatoComponent } from './components/gestaocampeonato/gerir-ca
     GerarchaveamentoComponent,
     ListarchaveamentoComponent,
     GestaocampeonatoComponent,
-    GerirCampeonatoComponent
+    GerirCampeonatoComponent,
+    RelatorioCampeonatoComponent,
+    ListarRelatorioComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@
       <li><a class="dropdown-trigger" href="#!" data-target="dropdownCadastro" #dropdownCadastro>Cadastros<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></li>
       <li><a [routerLink]="['/gestaocampeonato']">Gestão de campeonatos</a></li>
-      <li><a href="#">Relatórios</a></li>
+      <li><a [routerLink]="['/relatorio']">Relatório</a></li>
     </ul>
   </div>
 </nav>
@@ -34,6 +34,6 @@
     </li>
     <li><div class="collapsible-header"><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></div></li>
     <li><div class="collapsible-header"><a [routerLink]="['/gestaocampeonato']">Gestão de campeonatos</a></div></li>
-    <li><div class="collapsible-header"><a href="#">Relatórios</a></div></li>
+    <li><div class="collapsible-header"><a [routerLink]="['/relatorio']">Relatório</a></div></li>
   </ul>
 </ul>

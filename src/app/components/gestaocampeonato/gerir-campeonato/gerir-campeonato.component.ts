@@ -21,6 +21,5 @@ export class GerirCampeonatoComponent {
     } else {
       return "Aguardando resultado";
     }
-    
   }
 }
