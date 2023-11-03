@@ -1,7 +1,7 @@
 <h5>Cadastro de Jogador</h5>
 <hr />
 <div class="row">
-  <form class="col s12">
+  <form class="col s12" #formJogadores="ngForm">
     <div class="row">
       <div class="input-field col s12">
         <input
@@ -9,8 +9,17 @@
           id="input-jogador"
           type="text"
           [(ngModel)]="this.jogador.nomeJogador"
+          #nomeJogador = "ngModel"
+          minlength="8"
+          required
         />
         <label class="active" for="input-jogador">Nome</label>
+        <div class="red-text" *ngIf="nomeJogador.errors?.required && nomeJogador.touched">
+          Campo é obrigatório
+        </div>
+        <div class="red-text" *ngIf="!nomeJogador.valid && nomeJogador.touched">
+          Campo deve ter no mínimo 8 caracteres
+        </div>
       </div>
     </div>
     <div class="row">
@@ -20,8 +29,19 @@
             id="input-datanascimento"
             type="text"
             [(ngModel)]="this.jogador.dataNascimento"
+            #dataNascimentoJogador = "ngModel"
+            pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$"
+            mask="00/00/0000"
+            [dropSpecialCharacters]="false"
+            required
             />
             <label class="active" for="input-jogador">Data de Nascimento</label>
+            <div class="red-text" *ngIf="dataNascimentoJogador.errors?.required && dataNascimentoJogador.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!dataNascimentoJogador.valid && dataNascimentoJogador.touched">
+              Formato inválido
+            </div>
         </div>
     </div>
     <div class="row">
@@ -31,7 +51,16 @@
             id="input-cidade"
             type="text"
             [(ngModel)]="this.jogador.cidade"
+            #cidade = "ngModel"
+            required
+            minlength="3"
             />
+            <div class="red-text" *ngIf="cidade.errors?.required && cidade.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!cidade.valid && cidade.touched">
+              Campo deve ter no mínimo 3 caracteres
+            </div>
             <label class="active" for="input-jogador">Cidade</label>
         </div>
     </div>
@@ -42,8 +71,19 @@
             id="input-telefone"
             type="text"
             [(ngModel)]="this.jogador.telefone"
+            #telefone = "ngModel"
+            mask="(00) 00000-0000"
+            [dropSpecialCharacters]="false"
+            minlength="11"
+            required
             />
             <label class="active" for="input-jogador">Telefone</label>
+            <div class="red-text" *ngIf="telefone.errors?.required && telefone.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!telefone.valid && telefone.touched">
+              Formato inválido
+            </div>
         </div>
     </div>
     <div class="row">
@@ -52,7 +92,8 @@
           *ngIf="atualiza == false"
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.cadastraJogador();"
+          (click)="this.cadastraJogador();formJogadores.reset()"
+          [disabled]="!formJogadores.valid"
         >
           Salvar
           <i class="material-icons right">send</i>
@@ -61,7 +102,8 @@
           *ngIf="atualiza"
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.editaJogador();"
+          (click)="this.editaJogador();formJogadores.reset()"
+          [disabled]="!formJogadores.valid"
         >
           Atualizar
           <i class="material-icons right">send</i>
@@ -71,7 +113,7 @@
         <button
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.limparFormulario();"
+          (click)="this.limparFormulario(); formJogadores.reset()"
         >
         <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
           <ng-template minW #thenBlock>Cancelar</ng-template >

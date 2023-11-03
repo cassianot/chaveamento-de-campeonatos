@@ -14,28 +14,32 @@ export class ListarchaveamentoComponent {
   visivel : boolean = false;
   @Input() listaCompetidoresSelecionados: any[] = [];
   @Input() tipoCompetidor!: string;
-  @Input() chaveamento!: ChaveamentoCampeonato<any>;
+  @Input() chaveamento!: ChaveamentoCampeonato;
 
   constructor(
     private chaveamentoService : GerarchaveamentoService,
     private router : Router
   ) { }
 
-  getNomeDoObjeto(objeto: any){
+  getNomeDoObjeto(nomeGrupo: any, index: number = 0){
+    var array = this.chaveamento.Grupos.find((obj)=>{
+      if(obj[0] == nomeGrupo){
+        return obj;
+      };
+    });
     if(this.tipoCompetidor == 'times'){
-      return Util.abreviarNomes(objeto.nomeTime);
+      return Util.abreviarNomes(array[1][index].nomeTime);
     } else {
-      return Util.abreviarNomes(objeto.nomeJogador);
+      return Util.abreviarNomes(array[1][index].nomeJogador);
     }
   }
 
   iniciarCampeonato(){
     this.chaveamento.iniciado = true;
-    console.log(this.chaveamento);
     this.chaveamentoService.salvarChaveamento(this.chaveamento).subscribe(
       () => {
         M.toast({html: 'Cameponato Iniciado', classes: 'rounded'});
-        this.router.navigate(['/']);
+        this.router.navigate(['/inicio']);
       },
       (error) => {
         M.toast({html: 'Selecione um campeonato', classes: 'rounded'});

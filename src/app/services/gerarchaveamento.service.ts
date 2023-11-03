@@ -16,15 +16,23 @@ export class GerarchaveamentoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  getChaveamentos(): Observable<ChaveamentoCampeonato<any>[]> {
-    return this.httpClient.get<ChaveamentoCampeonato<any>[]>(`${RoutesAPI.CHAVEAMENTO}`).pipe(
+  getChaveamentos(): Observable<ChaveamentoCampeonato[]> {
+    return this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}`).pipe(
       catchError(ErrorUtil.handleError)
     );
   }
 
-  salvarChaveamento(chaveamento: ChaveamentoCampeonato<any>): Observable<ChaveamentoCampeonato<any>> {
-    return this.httpClient.post<ChaveamentoCampeonato<any>>(
+  salvarChaveamento(chaveamento: ChaveamentoCampeonato): Observable<ChaveamentoCampeonato> {
+    return this.httpClient.post<ChaveamentoCampeonato>(
       `${RoutesAPI.CHAVEAMENTO}`,
+      chaveamento,
+      this.httpOptions
+    );
+  }
+
+  atualizarChaveamento(chaveamento: ChaveamentoCampeonato): Observable<ChaveamentoCampeonato> {
+    return this.httpClient.put<ChaveamentoCampeonato>(
+      `${RoutesAPI.CHAVEAMENTO}/${chaveamento.id}`,
       chaveamento,
       this.httpOptions
     );

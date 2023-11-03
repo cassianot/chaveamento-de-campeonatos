@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WebStorageUtil } from './util/web-storage-util';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,6 @@ import { Component } from '@angular/core';
 export class AppComponent  {
 
   title = "chaveamentoCampeonato";
+  logged = false;
 
 }

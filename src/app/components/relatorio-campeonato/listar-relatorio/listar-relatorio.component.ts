@@ -10,7 +10,7 @@ import { Util } from 'src/app/util/util';
 export class ListarRelatorioComponent {
 
   visivel: boolean = false;
-  @Input() chaveamento! : ChaveamentoCampeonato<any>;
+  @Input() chaveamento! : ChaveamentoCampeonato;
 
   getNomeDoObjeto(objeto: any){
     if(objeto !== undefined) {
@@ -20,6 +20,24 @@ export class ListarRelatorioComponent {
       } else {
         //return Util.abreviarNomes(objeto.nomeJogador);
         return objeto.nomeJogador;
+      }
+    } else {
+      return "Aguardando resultado";
+    }
+  }
+
+  getNomeDoCompetidor(nomeGrupo: any, index: number){
+    var array = this.chaveamento.Grupos.find((obj)=>{
+      if(obj[0] == nomeGrupo){
+        return obj;
+      };
+    });
+
+    if(array[1].length > 0 && array[1][index] !== undefined) {
+      if(this.chaveamento.TipoCompetidor == 'times'){
+        return array[1][index].nomeTime;
+      } else {
+        return array[1][index].nomeJogador;
       }
     } else {
       return "Aguardando resultado";

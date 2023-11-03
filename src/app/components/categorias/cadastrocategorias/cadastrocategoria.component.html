@@ -1,7 +1,7 @@
     <h5>Cadastro de Categorias</h5>
     <hr />
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" #formCategoria="ngForm">
         <div class="row">
           <div class="input-field col s12">
             <input
@@ -9,8 +9,17 @@
               id="input-categoria"
               type="text"
               [(ngModel)]="this.categoria.nomeCategoria"
+              #nomeCategoria = "ngModel"
+              minlength="8"
+              required
             />
             <label class="active" for="input-categoria">Categoria</label>
+            <div class="red-text" *ngIf="nomeCategoria.errors?.required && nomeCategoria.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!nomeCategoria.valid && nomeCategoria.touched">
+              Campo deve ter no mínimo 8 caracteres
+            </div>
           </div>
         </div>
         <div class="row">
@@ -20,7 +29,16 @@
               id="input-description"
               class="materialize-textarea"
               [(ngModel)]="this.categoria.descricaoCategoria"
+              #descricaoCategoria = "ngModel"
+              minlength="8"
+              required
             ></textarea>
+            <div class="red-text" *ngIf="descricaoCategoria.errors?.required && descricaoCategoria.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!descricaoCategoria.valid && descricaoCategoria.touched">
+              Campo deve ter no mínimo 8 caracteres
+            </div>
             <label class="active" for="input-description">Descrição</label>
           </div>
         </div>
@@ -30,6 +48,7 @@
               *ngIf="atualiza == false"
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
+              [disabled]="!formCategoria.valid"
               (click)="this.cadastraCategoria();"
             >
               Salvar
@@ -39,6 +58,7 @@
               *ngIf="atualiza"
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
+              [disabled]="!formCategoria.valid"
               (click)="this.editaCategoria();"
             >
               Atualizar

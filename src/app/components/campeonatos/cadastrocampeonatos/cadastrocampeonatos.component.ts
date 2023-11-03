@@ -11,6 +11,8 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 export class CadastrocampeonatosComponent implements OnInit, AfterViewInit {
 
   listaCategorias : Categoria[] = [];
+  selectPreenchido: boolean = false;
+  selectTouched: number = 0;
   
   @Input() campeonato! : Campeonato;
   @Input() atualiza! : boolean;
@@ -57,4 +59,12 @@ export class CadastrocampeonatosComponent implements OnInit, AfterViewInit {
   ordenaListaCategoria(){
     this.listaCategorias.sort((a,b) => a.nomeCategoria!.localeCompare(b.nomeCategoria!));
   }
+
+  verificaSePreenchido(){
+    this.selectTouched++;
+    this.selectPreenchido = true;
+    if(this.campeonato.categoria == '')
+      this.selectPreenchido = false;
+  }
+
 }

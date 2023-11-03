@@ -35,4 +35,8 @@ export class Util {
         }
         return nomeAbreviado;
       }
+
+      public static exibirMensagem(mensagem: string) : void{
+        M.toast({html: mensagem, classes: 'rounded'});
+      }
 }

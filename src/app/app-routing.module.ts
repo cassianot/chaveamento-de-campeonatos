@@ -11,19 +11,26 @@ import { VisualizacampeonatoComponent } from './components/campeonatos/visualiza
 import { GerarchaveamentoComponent } from './components/gerarchaveamento/gerarchaveamento.component';
 import { GestaocampeonatoComponent } from './components/gestaocampeonato/gestaocampeonato.component';
 import { RelatorioCampeonatoComponent } from './components/relatorio-campeonato/relatorio-campeonato.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './util/AuthenticationGuard';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 const routes: Routes = [
-  {path: 'categorias', component: CategoriasComponent},
-  {path: 'categorias/:id', component: VisualizaCategoriaComponent},
-  {path: 'times', component: TimesComponent},
-  {path: 'times/:id', component: VisualizatimeComponent},
-  {path: 'jogadores', component: JogadoresComponent},
-  {path: 'jogadores/:id', component: VisualizajogadorComponent},
-  {path: 'campeonatos', component: CampeonatosComponent},
-  {path: 'campeonatos/:id', component: VisualizacampeonatoComponent},
-  {path: 'gerarchaveamento', component: GerarchaveamentoComponent},
-  {path: 'gestaocampeonato', component: GestaocampeonatoComponent},
-  {path: 'relatorio', component: RelatorioCampeonatoComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LoginComponent},
+  {path: 'inicio', component: InicioComponent, canActivate: [AuthGuard]},
+  {path: 'categorias', component: CategoriasComponent, canActivate: [AuthGuard]},
+  {path: 'categorias/:id', component: VisualizaCategoriaComponent, canActivate: [AuthGuard]},
+  {path: 'times', component: TimesComponent, canActivate: [AuthGuard]},
+  {path: 'times/:id', component: VisualizatimeComponent, canActivate: [AuthGuard]},
+  {path: 'jogadores', component: JogadoresComponent, canActivate: [AuthGuard]},
+  {path: 'jogadores/:id', component: VisualizajogadorComponent, canActivate: [AuthGuard]},
+  {path: 'campeonatos', component: CampeonatosComponent, canActivate: [AuthGuard]},
+  {path: 'campeonatos/:id', component: VisualizacampeonatoComponent, canActivate: [AuthGuard]},
+  {path: 'gerarchaveamento', component: GerarchaveamentoComponent, canActivate: [AuthGuard]},
+  {path: 'gestaocampeonato', component: GestaocampeonatoComponent, canActivate: [AuthGuard]},
+  {path: 'relatorio', component: RelatorioCampeonatoComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

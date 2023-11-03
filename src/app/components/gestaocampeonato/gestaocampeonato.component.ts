@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
-import { Time } from 'src/app/model/time.model';
 import { GerarchaveamentoService } from 'src/app/services/gerarchaveamento.service';
 import { GerirCampeonatoComponent } from './gerir-campeonato/gerir-campeonato.component';
 
@@ -13,11 +12,14 @@ export class GestaocampeonatoComponent implements AfterViewInit, OnInit{
 
   @ViewChild('comboCampeonatos') comboCampeonatos?: ElementRef;
   @ViewChild(GerirCampeonatoComponent) gerirCampeonato! : GerirCampeonatoComponent;
-  listaChaveamento: ChaveamentoCampeonato<any>[] = [];
-  chaveamento: ChaveamentoCampeonato<any>;
-  chaveamentoAtual!: ChaveamentoCampeonato<any>;
+  listaChaveamento: ChaveamentoCampeonato[] = [];
+  chaveamento: ChaveamentoCampeonato;
+  chaveamentoAtual!: ChaveamentoCampeonato;
 
-  constructor(private gestaoCampeonatoService: GerarchaveamentoService) { this.chaveamento = new ChaveamentoCampeonato<any>();}
+  selectPreenchido: boolean = false;
+  selectTouched: number = 0;
+
+  constructor(private gestaoCampeonatoService: GerarchaveamentoService) { this.chaveamento = new ChaveamentoCampeonato();}
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -41,5 +43,13 @@ export class GestaocampeonatoComponent implements AfterViewInit, OnInit{
     this.chaveamentoAtual = ChaveamentoCampeonato.clone(this.chaveamento);
     this.gerirCampeonato.visivel = true;
   }
+
+  verificaSePreenchido(){
+    this.selectTouched++;
+    this.selectPreenchido = true;
+    if(this.chaveamento.Campeonato.nomeCampeonato == '')
+      this.selectPreenchido = false;
+  }
+
 
 }

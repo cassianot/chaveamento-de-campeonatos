@@ -1,7 +1,7 @@
 <h5>Cadastro de Campeonatos</h5>
 <hr />
 <div class="row">
-  <form class="col s12">
+  <form class="col s12" #formCampeonato="ngForm">
     <div class="row">
       <div class="input-field col s12">
         <input
@@ -9,25 +9,40 @@
           id="input-campeonato"
           type="text"
           [(ngModel)]="this.campeonato.nomeCampeonato"
+          #nomeCampeonato = "ngModel"
+          minlength="8"
+          required
         />
         <label class="active" for="input-categoria">Campeonato</label>
+        <div class="red-text" *ngIf="nomeCampeonato.errors?.required && nomeCampeonato.touched">
+          Campo obrigatório
+        </div>
+        <div class="red-text" *ngIf="nomeCampeonato.errors?.minlength&& nomeCampeonato.touched">
+          Campo deve ter no mínimo 8 caracteres
+        </div>
       </div>
     </div>
     <div class="row">
-    <div class="input-field col s12">
-      <select 
-        name="select-categoria"
-        id="select-categoria"
-        #comboCategorias
-        [(ngModel)]="this.campeonato.categoria"
-      >
-        <option value="" disabled selected>Escolha a categoria</option>
-        <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria" >
-          {{ categoria.nomeCategoria }}
-        </option>
-      </select>
-        <label class="active" for="select-categoria">Categoria</label>
-    </div>
+      <div class="input-field col s12">
+        <select 
+          name="select-categoria"
+          id="select-categoria"
+          #comboCategorias
+          [(ngModel)]="this.campeonato.categoria"
+          [ngClass]="{'is-invalid': formCampeonato.submitted && formCampeonato.errors}"
+          #categoria = "ngModel"
+          (change)="verificaSePreenchido()"
+        >
+          <option value="" selected>Escolha a categoria</option>
+          <option *ngFor="let categoria of listaCategorias" [ngValue]="categoria" >
+            {{ categoria.nomeCategoria }}
+          </option>
+        </select>
+          <label class="active" for="select-categoria">Categoria</label>
+          <div class="red-text" *ngIf="!selectPreenchido && selectTouched > 0">
+            Campo obrigatório
+          </div>
+      </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
@@ -36,7 +51,16 @@
           id="input-description"
           class="materialize-textarea"
           [(ngModel)]="this.campeonato.descricaoCampeonato"
+          #descricaoCampeonato = "ngModel"
+          minlength="8"
+          required
         ></textarea>
+        <div class="red-text" *ngIf="descricaoCampeonato.errors?.required && descricaoCampeonato.touched">
+          Campo obrigatório
+        </div>
+        <div class="red-text" *ngIf="descricaoCampeonato.errors?.minlength&& descricaoCampeonato.touched">
+          Campo deve ter no mínimo 8 caracteres
+        </div>
         <label class="active" for="input-description">Descrição</label>
       </div>
     </div>
@@ -47,6 +71,7 @@
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
           (click)="this.cadastraCampeonato();"
+          [disabled]="!formCampeonato.valid || !selectPreenchido"
         >
           Salvar
           <i class="material-icons right">send</i>

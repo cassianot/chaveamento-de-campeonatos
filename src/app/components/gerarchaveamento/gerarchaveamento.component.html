@@ -3,7 +3,7 @@
     <h5>Gerar chaveamento</h5>
     <hr />
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" #formGeraChaveamento="ngForm">
         <div class="row">
           <div class="input-field col s6">
             <select
@@ -11,12 +11,16 @@
                 id="select-campeonato"
                 #comboCampeonatos
                 [(ngModel)] = "campeonato"
+                (change)="verificaSePreenchido()"
             >
                 <option value="" disabled selected>Escolha o campeonato</option>
                 <option *ngFor="let campeonato of listaCampeonatos" [ngValue]="campeonato" >
                     {{ campeonato.nomeCampeonato }} [{{campeonato.categoria!.nomeCategoria}}]
                 </option>
             </select>
+            <div class="red-text" *ngIf="!selectPreenchido && selectTouched > 0">
+              Campo obrigatório
+            </div>
           </div>
           <div class="input-field col s6">
             <form action="#">
@@ -53,6 +57,7 @@
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
               (click)="this.gerarChaveamento();"
+              [disabled]="!selectPreenchido"
             >
               Gerar
               <i class="material-icons right">send</i>

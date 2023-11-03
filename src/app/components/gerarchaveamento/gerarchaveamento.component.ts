@@ -24,7 +24,9 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
   listaCompetidores: any[] = [];
   listaCompetidoresSelecionados: any[] = [];
   tipoCompetidor: string = 'times';
-  chaveamento!: ChaveamentoCampeonato<any>;
+  chaveamento!: ChaveamentoCampeonato;
+  selectPreenchido: boolean = false;
+  selectTouched: number = 0;
 
   constructor(
     private campeonatoService: CampeonatoService,
@@ -100,9 +102,10 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
     }
     Util.shuffle(this.listaCompetidoresSelecionados);
 
-    this.chaveamento = new ChaveamentoCampeonato<Time>();
+    this.chaveamento = new ChaveamentoCampeonato();
     this.chaveamento.TipoCompetidor = this.tipoCompetidor;
     this.chaveamento.Campeonato = this.campeonato;
+    this.chaveamento.setChaveamento(this.listaCompetidoresSelecionados);
     
     this.chaveamento.GrupoA.push(this.listaCompetidoresSelecionados[0]);
     this.chaveamento.GrupoA.push(this.listaCompetidoresSelecionados[1]);
@@ -130,5 +133,13 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
     
     this.listaChaveamento.visivel = true;
   }
+
+  verificaSePreenchido(){
+    this.selectTouched++;
+    this.selectPreenchido = true;
+    if(this.campeonato.categoria == '')
+      this.selectPreenchido = false;
+  }
+
 
 }

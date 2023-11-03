@@ -1,4 +1,4 @@
-<ul id="dropdownCadastro" class="dropdown-content " [hidden]="notLogged">
+<ul id="dropdownCadastro" class="dropdown-content " [hidden]="logado()">
   <li><a [routerLink]="['/campeonatos']">Campeonatos</a></li>
   <li><a [routerLink]="['/categorias']">Categorias</a></li>
   <li><a [routerLink]="['/times']">Times</a></li>
@@ -10,16 +10,17 @@
       <i class="material-icons">{{icon}}</i>
     </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down" [hidden]="notLogged">
+    <ul class="right hide-on-med-and-down" [hidden]="logado()">
       <li><a class="dropdown-trigger" href="#!" data-target="dropdownCadastro" #dropdownCadastro>Cadastros<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></li>
       <li><a [routerLink]="['/gestaocampeonato']">Gestão de campeonatos</a></li>
       <li><a [routerLink]="['/relatorio']">Relatório</a></li>
+      <li><a [routerLink]="['/logout']">Sair</a></li>
     </ul>
   </div>
 </nav>
   
-<ul class="sidenav" id="mobile-demo" #mobile [hidden]="notLogged">
+<ul class="sidenav" id="mobile-demo" #mobile [hidden]="logado()">
   <ul class="collapsible" #colapse>
     <li>
       <div class="collapsible-header">Cadastros</div>
@@ -35,5 +36,6 @@
     <li><div class="collapsible-header"><a [routerLink]="['/gerarchaveamento']">Gerar chaveamento</a></div></li>
     <li><div class="collapsible-header"><a [routerLink]="['/gestaocampeonato']">Gestão de campeonatos</a></div></li>
     <li><div class="collapsible-header"><a [routerLink]="['/relatorio']">Relatório</a></div></li>
+    <li><div class="collapsible-header"><a [routerLink]="['/logout']">Sair</a></div></li>
   </ul>
 </ul>

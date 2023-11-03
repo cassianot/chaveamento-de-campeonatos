@@ -13,8 +13,11 @@ export class RelatorioCampeonatoComponent implements OnInit, AfterViewInit{
   @ViewChild('comboCampeonatos') comboCampeonatos?: ElementRef;
   @ViewChild(ListarRelatorioComponent) relatorio! : ListarRelatorioComponent;
 
-  listaChaveamento: ChaveamentoCampeonato<any>[] = [];
-  chaveamento! : ChaveamentoCampeonato<any>;
+  listaChaveamento: ChaveamentoCampeonato[] = [];
+  chaveamento! : ChaveamentoCampeonato;
+
+  selectPreenchido: boolean = false;
+  selectTouched: number = 0;
 
   constructor(private gestaoCampeonatoService: GerarchaveamentoService) { }
 
@@ -37,6 +40,13 @@ export class RelatorioCampeonatoComponent implements OnInit, AfterViewInit{
 
   visualizarRelatorio() {
     this.relatorio.visivel = true;
+  }
+
+  verificaSePreenchido(){
+    this.selectTouched++;
+    this.selectPreenchido = true;
+    if(this.chaveamento.Campeonato.nomeCampeonato == '')
+      this.selectPreenchido = false;
   }
   
 }

@@ -1,7 +1,7 @@
 <h5>Cadastro de Times</h5>
 <hr />
 <div class="row">
-  <form class="col s12">
+  <form class="col s12" #formTimes="ngForm">
     <div class="row">
       <div class="input-field col s12">
         <input
@@ -9,8 +9,17 @@
           id="input-time"
           type="text"
           [(ngModel)]="this.time.nomeTime"
+          #nomeTime = "ngModel"
+          minlength="5"
+          required
         />
         <label class="active" for="input-time">Time</label>
+        <div class="red-text" *ngIf="nomeTime.errors?.required && nomeTime.touched">
+          Campo é obrigatório
+        </div>
+        <div class="red-text" *ngIf="!nomeTime.valid && nomeTime.touched">
+          Campo deve ter no mínimo 5 caracteres
+        </div>
       </div>
     </div>
     <div class="row">
@@ -20,8 +29,17 @@
           id="input-description"
           class="materialize-textarea"
           [(ngModel)]="this.time.descricaoTime"
+          #descricaoTime = "ngModel"
+          minlength="8"
+          required
         ></textarea>
         <label class="active" for="input-description">Descrição</label>
+        <div class="red-text" *ngIf="descricaoTime.errors?.required && descricaoTime.touched">
+          Campo é obrigatório
+        </div>
+        <div class="red-text" *ngIf="!descricaoTime.valid && descricaoTime.touched">
+          Campo deve ter no mínimo 8 caracteres
+        </div>
       </div>
     </div>
     <div class="row">
@@ -31,6 +49,7 @@
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
           (click)="this.cadastraTime();"
+          [disabled]="!formTimes.valid"
         >
           Salvar
           <i class="material-icons right">send</i>
@@ -40,6 +59,7 @@
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
           (click)="this.editaTime();"
+          [disabled]="!formTimes.valid"
         >
           Atualizar
           <i class="material-icons right">send</i>

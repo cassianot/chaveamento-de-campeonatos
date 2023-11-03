@@ -30,6 +30,8 @@ import { GestaocampeonatoComponent } from './components/gestaocampeonato/gestaoc
 import { GerirCampeonatoComponent } from './components/gestaocampeonato/gerir-campeonato/gerir-campeonato.component';
 import { RelatorioCampeonatoComponent } from './components/relatorio-campeonato/relatorio-campeonato.component';
 import { ListarRelatorioComponent } from './components/relatorio-campeonato/listar-relatorio/listar-relatorio.component';
+import { LoginComponent } from './components/login/login.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { ListarRelatorioComponent } from './components/relatorio-campeonato/list
     GestaocampeonatoComponent,
     GerirCampeonatoComponent,
     RelatorioCampeonatoComponent,
-    ListarRelatorioComponent
+    ListarRelatorioComponent,
+    LoginComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
