@@ -96,6 +96,7 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
   }
 
   gerarChaveamento(){
+    console.log(this.listaCompetidoresSelecionados);
     if(this.listaCompetidoresSelecionados.length < 16){
       M.toast({html: 'Precisa de pelo menos 16 jogadores/times', classes: 'rounded'});
       return;

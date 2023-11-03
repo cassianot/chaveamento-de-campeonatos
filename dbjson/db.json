@@ -122,6 +122,12 @@
       "descricaoTime": "CLUBE FURIA",
       "ativo": true,
       "id": 16
+    },
+    {
+      "nomeTime": "Ultimo Time",
+      "descricaoTime": "Ultimo Time",
+      "ativo": true,
+      "id": 17
     }
   ],
   "jogador": [
@@ -600,10 +606,10 @@
         "id": 13
       },
       "TerceiroLugar": {
-        "nomeTime": "CLUBE FONTE SÃO PAULO",
-        "descricaoTime": "CLUBE FONTE SÃO PAULO",
+        "nomeTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
+        "descricaoTime": "ASSOCIAÇÃO AMIGOS BADMINTON TOLEDO - A.A.B.T",
         "ativo": true,
-        "id": 8
+        "id": 7
       }
     }
   ]

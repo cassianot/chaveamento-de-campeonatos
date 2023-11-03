@@ -1,7 +1,7 @@
 <h5>Cadastro de Times</h5>
 <hr />
 <div class="row">
-  <form class="col s12" #formTimes="ngForm">
+  <form class="col s12" #formTimes="ngForm" (submit)="formTimes.reset()">
     <div class="row">
       <div class="input-field col s12">
         <input
