@@ -13,7 +13,7 @@ export class InicioComponent implements OnInit {
   constructor(private gestaoCampeonatoService: GerarchaveamentoService){ }
   ngOnInit(): void {
     this.gestaoCampeonatoService
-      .getChaveamentos()
+      .getChaveamentos(true)
       .then((chaveamento : ChaveamentoCampeonato[]) => {
         this.listaChaveamento = chaveamento;
       })

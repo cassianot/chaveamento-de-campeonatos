@@ -45,7 +45,7 @@ export class GerirCampeonatoComponent {
   }
 
   setVencedor(grupo: string, competidor: any){
-    if(this.chaveamento.Campeao.length > 0) {
+    if(this.chaveamento.Campeao?.length > 0 || this.chaveamento.Campeao === undefined) {
       var ret = this.chaveamento.setVencedor(grupo, competidor);
       this.chaveamentoService
         .atualizarChaveamento(this.chaveamento)

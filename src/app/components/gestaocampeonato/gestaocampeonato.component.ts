@@ -40,7 +40,7 @@ export class GestaocampeonatoComponent implements AfterViewInit, OnInit{
 
   ngOnInit(): void {
     this.gestaoCampeonatoService
-      .getChaveamentos()
+      .getChaveamentos(true)
       .then((chaveamento : ChaveamentoCampeonato[]) => {
         this.listaChaveamento = chaveamento;
       })

@@ -16,9 +16,12 @@ export class GerarchaveamentoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getChaveamentos(): Promise<ChaveamentoCampeonato[]> {
+  async getChaveamentos(iniciado: boolean = false): Promise<ChaveamentoCampeonato[]> {
+    let query = "";
+    if(iniciado)
+      query="?iniciado=true"
     return await lastValueFrom(
-      this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}`)
+      this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}${query}`)
     );
   }
 

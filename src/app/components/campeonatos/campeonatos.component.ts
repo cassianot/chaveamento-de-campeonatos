@@ -46,7 +46,7 @@ export class CampeonatosComponent implements OnInit {
         this.listaCampeonatos.push(_campeonato);
         Util.ordenaListaCameponato(this.listaCampeonatos);
         this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
-        Util.exibirMensagem(`Campeonato salva com sucesso: ${campeonato.nomeCampeonato}`);
+        Util.exibirMensagem(`Campeonato salva com sucesso: ${_campeonato.nomeCampeonato}`);
       })
       .catch((error)=>{
         catchError(ErrorUtil.handleError);
@@ -64,7 +64,7 @@ export class CampeonatosComponent implements OnInit {
         this.atualiza = false;
         this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
         Util.ordenaListaCameponato(this.listaCampeonatos);
-        Util.exibirMensagem(`Campeonato atualizada com sucesso: ${campeonato.nomeCampeonato}`);
+        Util.exibirMensagem(`Campeonato atualizada com sucesso: ${_campeonato.nomeCampeonato}`);
       })
       .catch((error) => {
         catchError(ErrorUtil.handleError);
@@ -77,7 +77,7 @@ export class CampeonatosComponent implements OnInit {
     this.campeonatoService
       .atualizarCampeonato(campeonato)
       .then((_campeonato : Campeonato) => {
-        Util.exibirMensagem(`Status atualizado: ${campeonato.nomeCampeonato}`);
+        Util.exibirMensagem(`Status atualizado: ${_campeonato.nomeCampeonato}`);
       })
       .catch((error) => {
         catchError(ErrorUtil.handleError);
