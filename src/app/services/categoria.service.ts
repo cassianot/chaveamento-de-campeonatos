@@ -1,10 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom, lastValueFrom } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { RoutesAPI } from '../util/routes-api';
 import { Categoria } from '../model/categoria.model';
-import { catchError } from 'rxjs/operators';
-import { ErrorUtil } from '../util/ErrorUtil';
 
 @Injectable({
   providedIn: 'root'
@@ -18,31 +16,35 @@ export class CategoriaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  getCategorias(): Observable<Categoria[]> {
-    return this.httpClient.get<Categoria[]>(`${RoutesAPI.CATEGORIA}`).pipe(
-      catchError(ErrorUtil.handleError)
+  async getCategorias(): Promise<Categoria[]> {
+    return await lastValueFrom(
+      this.httpClient.get<Categoria[]>(`${RoutesAPI.CATEGORIA}`)
     );
   }
 
-  getCategoriaById(id: number): Observable<Categoria> {
-    return this.httpClient.get<Categoria>(`${RoutesAPI.CATEGORIA}/${id}`).pipe(
-      catchError(ErrorUtil.handleError)
+  async getCategoriaById(id: number): Promise<Categoria> {
+    return await lastValueFrom(
+      this.httpClient.get<Categoria>(`${RoutesAPI.CATEGORIA}/${id}`)
     );
   }
 
-  salvarCategoria(categoria: Categoria): Observable<Categoria> {
-    return this.httpClient.post<Categoria>(
-      `${RoutesAPI.CATEGORIA}`,
-      categoria,
-      this.httpOptions
+  async salvarCategoria(categoria: Categoria): Promise<Categoria> {
+    return await lastValueFrom(
+      this.httpClient.post<Categoria>(
+        `${RoutesAPI.CATEGORIA}`,
+        categoria,
+        this.httpOptions
+      )
     );
   }
 
-  atualizarCategoria(categoria: Categoria): Observable<Categoria> {
-    return this.httpClient.put<Categoria>(
-      `${RoutesAPI.CATEGORIA}/${categoria.id}`,
-      categoria,
-      this.httpOptions
+  async atualizarCategoria(categoria: Categoria): Promise<Categoria> {
+    return await lastValueFrom(
+      this.httpClient.put<Categoria>(
+        `${RoutesAPI.CATEGORIA}/${categoria.id}`,
+        categoria,
+        this.httpOptions
+      )
     );
   }
 }

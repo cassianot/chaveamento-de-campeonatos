@@ -30,6 +30,7 @@ const routes: Routes = [
   {path: 'campeonatos/:id', component: VisualizacampeonatoComponent, canActivate: [AuthGuard]},
   {path: 'gerarchaveamento', component: GerarchaveamentoComponent, canActivate: [AuthGuard]},
   {path: 'gestaocampeonato', component: GestaocampeonatoComponent, canActivate: [AuthGuard]},
+  {path: 'gestaocampeonato/:id', component: GestaocampeonatoComponent, canActivate: [AuthGuard]},
   {path: 'relatorio', component: RelatorioCampeonatoComponent, canActivate: [AuthGuard]},
 ];
 

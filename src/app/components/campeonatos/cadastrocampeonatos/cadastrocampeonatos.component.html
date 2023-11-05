@@ -70,7 +70,7 @@
           *ngIf="atualiza == false"
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.cadastraCampeonato();"
+          (click)="this.cadastraCampeonato();formCampeonato.reset();"
           [disabled]="!formCampeonato.valid || !selectPreenchido"
         >
           Salvar
@@ -80,7 +80,7 @@
           *ngIf="atualiza"
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.editaCampeonato();"
+          (click)="this.editaCampeonato();formCampeonato.reset();"
         >
           Atualizar
           <i class="material-icons right">send</i>
@@ -90,7 +90,7 @@
         <button
           class="btn waves-effect waves-light light-blue darken-4"
           type="submit"
-          (click)="this.limparFormulario();"
+          (click)="this.limparFormulario();formCampeonato.reset();"
         >
         <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
           <ng-template minW #thenBlock>Cancelar</ng-template >

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Jogador } from 'src/app/model/jogador.model';
 import { JogadorService } from 'src/app/services/jogador.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-jogadores',
@@ -23,60 +26,60 @@ export class JogadoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jogadorService.getJogadores().subscribe(
-      (jogadores) => {
+    this.jogadorService
+      .getJogadores()
+      .then((jogadores)=>{
         this.listaJogadores = jogadores;
-        this.ordenaLista();
-      },
-      (error) => {
+        Util.ordenaListaJogadores(this.listaJogadores);
+      })
+      .catch((error)=>{
         console.log(error);
-      }
-    );
-  }
-
-  exibirMensagem(mensagem: string){
-    M.toast({html: mensagem, classes: 'rounded'});
+      })
   }
 
   salvarJogador(jogador: Jogador){
-    this.jogadorService.salvarJogador(jogador).subscribe(
-      (_jogador) => {
+    this.jogadorService
+      .salvarJogador(jogador)
+      .then((_jogador : Jogador) => {
         this.listaJogadores.push(_jogador);
-        this.ordenaLista();
+        Util.ordenaListaJogadores(this.listaJogadores);
         this.jogador = new Jogador("","","","", true);
-        this.exibirMensagem(`Jogador salva com sucesso: ${jogador.nomeJogador}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao salvar jogador: ${jogador.nomeJogador}`);
-      }
-    );
+        Util.exibirMensagem(`Jogador salva com sucesso: ${_jogador.nomeCompetidor}`);
+      })
+      .catch((error) =>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar jogador: ${jogador.nomeCompetidor}`);
+      })
   }
 
   atualizarJogador(jogador: Jogador){
-    this.jogadorService.atualizarJogador(jogador).subscribe(
-      (_jogador) => {
+    this.jogadorService
+      .atualizarJogador(jogador)
+      .then((_jogador : Jogador) =>{
         this.listaJogadores.splice(this.listaJogadores.indexOf(this.jogadorOld), 1);
         this.listaJogadores.push(_jogador);
         this.atualiza = false;
         this.jogador = new Jogador("", "", "", "", true);
-        this.ordenaLista();
-        this.exibirMensagem(`Jogador atualizada com sucesso: ${jogador.nomeJogador}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar jogador: ${jogador.nomeJogador}`);
-      }
-    );
+        Util.ordenaListaJogadores(this.listaJogadores);
+        Util.exibirMensagem(`Jogador atualizada com sucesso: ${_jogador.nomeCompetidor}`);
+      })
+      .catch((error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar jogador: ${jogador.nomeCompetidor}`);
+      })
   }
 
   ativarDesativarJogador(jogador: Jogador){
-    this.jogadorService.atualizarJogador(jogador).subscribe(
-      (_jogador) => {
-        this.exibirMensagem(`Status atualizado: ${jogador.nomeJogador}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar status: ${jogador.nomeJogador}`);
-      }
-    );
+    this.jogadorService
+      .atualizarJogador(jogador)
+      .then((_jogador : Jogador) => {
+        Util.exibirMensagem(`Status atualizado: ${_jogador.nomeCompetidor}`);
+      })
+      .catch((error) => {
+        Util.exibirMensagem(`Erro ao atualizar status: ${jogador.nomeCompetidor}`);
+      })
   }
 
   editarJogador(jogador: Jogador){
@@ -85,13 +88,8 @@ export class JogadoresComponent implements OnInit {
     this.atualiza = true;
   }
 
-  limparFormulario(limpa: string){
+  limparFormulario(){
     this.jogador = new Jogador("", "", "", "", true);
     this.atualiza = false;
   }
-
-  ordenaLista(){
-    this.listaJogadores.sort((a,b) => a.nomeJogador!.localeCompare(b.nomeJogador!));
-  }
-
 }

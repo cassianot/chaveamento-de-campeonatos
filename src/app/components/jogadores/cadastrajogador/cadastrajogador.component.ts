@@ -11,10 +11,9 @@ export class CadastrajogadorComponent implements OnInit {
   @Input() jogador! : Jogador;
   @Input() atualiza! : boolean;
   @Input() listajogadores : Jogador[] = [];
-  @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaJogador = new EventEmitter<Jogador>();
   @Output() atualizaJogador = new EventEmitter<Jogador>();
-  @Output() limpaFormulario = new EventEmitter<string>();
+  @Output() limpaFormulario = new EventEmitter();
 
   ngOnInit(){
     this.jogador = new Jogador("", "", "", "", true);
@@ -29,7 +28,7 @@ export class CadastrajogadorComponent implements OnInit {
   }
 
   limparFormulario(){
-    this.limpaFormulario.emit("");
+    this.limpaFormulario.emit();
   }
   
 }

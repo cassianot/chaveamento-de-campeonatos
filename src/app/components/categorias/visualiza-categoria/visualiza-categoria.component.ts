@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-visualiza-categoria',
@@ -25,15 +26,14 @@ export class VisualizaCategoriaComponent {
   }
 
   ngOnInit(){
-    this.categoriaService.getCategoriaById(this.categoriaId).subscribe(
-      (categoria) => {
-        this.categoria = categoria;
-      },
-      (error) => {
-        M.toast({html: 'Parâmetros inválidos!', classes: 'rounded'});
-        this.router.navigate(['/categorias']);
-      }
-    );
+    this.categoriaService
+    .getCategoriaById(this.categoriaId)
+    .then((c: Categoria) => {
+      this.categoria = c;
+    })
+    .catch((error) =>{
+      Util.exibirMensagem('Parâmetros inválidos');
+    });
   }
 
   getStatus(){

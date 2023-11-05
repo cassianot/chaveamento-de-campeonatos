@@ -14,7 +14,7 @@
                         (change)="verificaSePreenchido()"
                     >
                         <option value="" disabled selected>Escolha o campeonato</option>
-                        <option *ngFor="let chaveamento of listaChaveamento" [ngValue]="chaveamento" >
+                        <option *ngFor="let chaveamento of listaChaveamento" [ngValue]="chaveamento">
                             {{ chaveamento.Campeonato.nomeCampeonato }} [{{chaveamento.Campeonato.categoria!.nomeCategoria}}]
                         </option>
                     </select>

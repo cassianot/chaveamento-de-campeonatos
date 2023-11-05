@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-categorias',
@@ -23,60 +26,61 @@ export class CategoriasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoriaService.getCategorias().subscribe(
-      (categorias) => {
-        this.listaCategorias = categorias;
-        this.ordenaLista();
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-
-  exibirMensagem(mensagem: string){
-    M.toast({html: mensagem, classes: 'rounded'});
+    this.categoriaService
+    .getCategorias()
+    .then((c: Categoria[]) => {
+      this.listaCategorias = c;
+    })
+    .catch((error) =>{
+      console.log('Erro ao carregar categorias: ' + error);
+    });
   }
 
   salvarCategoria(categoria: Categoria){
-    this.categoriaService.salvarCategoria(categoria).subscribe(
-      (_categoria) => {
+    this.categoriaService
+      .salvarCategoria(categoria)
+      .then((_categoria : Categoria) => {
         this.listaCategorias.push(_categoria);
-        this.ordenaLista();
+        Util.ordenaListaCategoria(this.listaCategorias);
         this.categoria = new Categoria("", "", true);
-        this.exibirMensagem(`Categoria salva com sucesso: ${categoria.nomeCategoria}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao salvar categoria: ${categoria.nomeCategoria}`);
-      }
-    );
+        Util.exibirMensagem(`Categoria salva com sucesso: ${categoria.nomeCategoria}`);
+      })
+      .catch((error) =>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar categoria: ${categoria.nomeCategoria}`);
+      })
   }
 
   atualizarCategoria(categoria: Categoria){
-    this.categoriaService.atualizarCategoria(categoria).subscribe(
-      (_categoria) => {
+    this.categoriaService
+      .atualizarCategoria(categoria)
+      .then((_categoria : Categoria) => {
         this.listaCategorias.splice(this.listaCategorias.indexOf(this.categoriaOld), 1);
         this.listaCategorias.push(_categoria);
         this.atualiza = false;
         this.categoria = new Categoria("", "", true);
-        this.ordenaLista();
-        this.exibirMensagem(`Categoria atualizada com sucesso: ${categoria.nomeCategoria}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar categoria: ${categoria.nomeCategoria}`);
-      }
-    );
+        Util.ordenaListaCategoria(this.listaCategorias);
+        Util.exibirMensagem(`Categoria atualizada com sucesso: ${_categoria.nomeCategoria}`);
+      })
+      .catch((error) =>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar categoria: ${categoria.nomeCategoria}`);
+      })
   }
 
   ativarDesativarCategoria(categoria: Categoria){
-    this.categoriaService.atualizarCategoria(categoria).subscribe(
-      (_categoria) => {
-        this.exibirMensagem(`Status atualizado: ${categoria.nomeCategoria}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar status: ${categoria.nomeCategoria}`);
-      }
-    );
+    this.categoriaService
+      .atualizarCategoria(categoria)
+      .then((_categoria : Categoria) => {
+        Util.exibirMensagem(`Status atualizado: ${_categoria.nomeCategoria}`);
+      })
+      .catch((error) =>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao atualizar status: ${categoria.nomeCategoria}`);
+      })
   }
 
   editarCategoria(categoria: Categoria){
@@ -85,13 +89,9 @@ export class CategoriasComponent implements OnInit {
     this.atualiza = true;
   }
 
-  limparFormulario(limpa: string){
+  limparFormulario(){
     this.categoria = new Categoria("", "", true);
     this.atualiza = false;
-  }
-
-  ordenaLista(){
-    this.listaCategorias.sort((a,b) => a.nomeCategoria!.localeCompare(b.nomeCategoria!));
   }
   
 }

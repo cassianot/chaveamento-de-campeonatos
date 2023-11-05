@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Time } from 'src/app/model/time.model';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-listatimes',
@@ -10,7 +11,6 @@ export class ListatimesComponent {
 
   @Input() listaTimes : Time[] = [];
   @Input() atualiza! : boolean;
-  @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarTime = new EventEmitter<Time>();
   @Output() editaTime = new EventEmitter<Time>();
 
@@ -19,7 +19,7 @@ export class ListatimesComponent {
       time.ativo = !time.ativo;
       this.ativaDesativarTime.emit(time);
     } else {
-      this.exibeMensagem.emit("Não é possível ativar/desativar enquanto está editando um time!");
+      Util.exibirMensagem("Não é possível ativar/desativar enquanto está editando um time!");
     }
   }
 

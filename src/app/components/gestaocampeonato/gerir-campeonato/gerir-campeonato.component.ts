@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
+import { catchError } from 'rxjs';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { GerarchaveamentoService } from 'src/app/services/gerarchaveamento.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
 import { Util } from 'src/app/util/util';
 
 @Component({
@@ -17,11 +19,7 @@ export class GerirCampeonatoComponent {
 
   getNomeDoObjeto(objeto: any){
     if(objeto !== undefined) {
-      if(this.chaveamento.TipoCompetidor == 'times') {
-        return objeto.nomeTime;
-      } else {
-        return objeto.nomeJogador;
-      }
+      return objeto.nomeCompetidor;
     } else {
       return "Aguardando resultado";
     }
@@ -35,11 +33,7 @@ export class GerirCampeonatoComponent {
     });
 
     if(array[1].length > 0 && array[1][index] !== undefined) {
-      if(this.chaveamento.TipoCompetidor == 'times'){
-        return Util.abreviarNomes(array[1][index].nomeTime);
-      } else {
-        return Util.abreviarNomes(array[1][index].nomeJogador);
-      }
+      return Util.abreviarNomes(array[1][index].nomeCompetidor);
     } else {
       return "Aguardando resultado";
     }
@@ -51,7 +45,21 @@ export class GerirCampeonatoComponent {
   }
 
   setVencedor(grupo: string, competidor: any){
-    this.chaveamento.setVencedor(grupo, competidor);
-    this.chaveamentoService.atualizarChaveamento(this.chaveamento).subscribe();
+    if(this.chaveamento.Campeao.length > 0) {
+      var ret = this.chaveamento.setVencedor(grupo, competidor);
+      this.chaveamentoService
+        .atualizarChaveamento(this.chaveamento)
+        .then(()=>{
+          if(ret)
+            Util.exibirMensagem(`${competidor.nomeCompetidor} foi para a próxima fase!`);
+        })
+        .catch((error)=>{
+          catchError(ErrorUtil.handleError);
+          console.log(error);
+          Util.exibirMensagem('Erro ao atualizar tabela');
+        })
+    } else {
+      Util.exibirMensagem(`Este campeonato já possui um campeão: ${this.chaveamento.Campeao.nomeCompetidor}`);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Campeonato } from 'src/app/model/campeonato.model';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-listacampeonatos',
@@ -10,7 +11,6 @@ export class ListacampeonatosComponent {
 
   @Input() listaCampeonatos : Campeonato[] = [];
   @Input() atualiza! : boolean;
-  @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarCampeonato = new EventEmitter<Campeonato>();
   @Output() editaCampeonato = new EventEmitter<Campeonato>();
 
@@ -19,7 +19,7 @@ export class ListacampeonatosComponent {
       campeonato.ativo = !campeonato.ativo;
       this.ativaDesativarCampeonato.emit(campeonato);
     } else {
-      this.exibeMensagem.emit("Não é possível ativar/desativar enquanto está editando um campeonato!");
+      Util.exibirMensagem("Não é possível ativar/desativar enquanto está editando um campeonato!");
     }
   }
 

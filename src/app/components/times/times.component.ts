@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Time } from 'src/app/model/time.model';
 import { TimesService } from 'src/app/services/times.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-times',
@@ -24,60 +27,60 @@ export class TimesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.timeService.getTimes().subscribe(
-      (times) => {
+    this.timeService
+      .getTimes()
+      .then((times : Time[]) =>{
         this.listaTimes = times;
-        this.ordenaLista();
-      },
-      (error) => {
+        Util.ordenaListaTimes(this.listaTimes);
+      })
+      .catch((error) =>{
         console.log(error);
-      }
-    );
-  }
-
-  exibirMensagem(mensagem: string){
-    M.toast({html: mensagem, classes: 'rounded'});
+      });
   }
 
   salvarTime(time: Time){
-    this.timeService.salvarTime(time).subscribe(
-      (_time) => {
+    this.timeService
+      .salvarTime(time)
+      .then((_time) => {
         this.listaTimes.push(_time);
-        this.ordenaLista();
         this.time = new Time("", "", true);
-        this.exibirMensagem(`Time salvo com sucesso: ${time.nomeTime}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao salvar time: ${time.nomeTime}`);
-      }
-    );
+        Util.ordenaListaTimes(this.listaTimes);
+        Util.exibirMensagem(`Time salvo com sucesso: ${_time.nomeCompetidor}`);
+      })
+      .catch((error)=>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar time: ${time.nomeCompetidor}`);
+      });
   }
 
   atualizarTime(time: Time){
-    this.timeService.atualizarTime(time).subscribe(
-      (_time) => {
+    this.timeService
+      .atualizarTime(time)
+      .then((_time : Time) =>{
         this.listaTimes.splice(this.listaTimes.indexOf(this.timeOld), 1);
         this.listaTimes.push(_time);
         this.atualiza = false;
         this.time = new Time("", "", true);
-        this.ordenaLista();
-        this.exibirMensagem(`Time atualizada com sucesso: ${time.nomeTime}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar time: ${time.nomeTime}`);
-      }
-    );
+        Util.ordenaListaTimes(this.listaTimes)
+        Util.exibirMensagem(`Time atualizada com sucesso: ${_time.nomeCompetidor}`);
+      })
+      .catch((error)=>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao atualizar time: ${time.nomeCompetidor}`);
+      })
   }
 
   ativarDesativarTime(time: Time){
-    this.timeService.atualizarTime(time).subscribe(
-      (_time) => {
-        this.exibirMensagem(`Status atualizado: ${time.nomeTime}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar status: ${time.nomeTime}`);
-      }
-    );
+    this.timeService
+      .atualizarTime(time)
+      .then((_time : Time) =>{
+        Util.exibirMensagem(`Status atualizado: ${_time.nomeCompetidor}`);
+      })
+      .catch((error)=>{
+        Util.exibirMensagem(`Erro ao atualizar status: ${time.nomeCompetidor}`);
+      })
   }
 
   editarTime(time: Time){
@@ -86,13 +89,9 @@ export class TimesComponent implements OnInit {
     this.atualiza = true;
   }
 
-  limparFormulario(limpa: string){
+  limparFormulario(){
     this.time = new Time("", "", true);
     this.atualiza = false;
-  }
-
-  ordenaLista(){
-    this.listaTimes.sort((a,b) => a.nomeTime!.localeCompare(b.nomeTime!));
   }
 
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Time } from 'src/app/model/time.model';
 import { TimesService } from 'src/app/services/times.service';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-visualizatime',
@@ -25,15 +26,15 @@ export class VisualizatimeComponent {
   }
 
   ngOnInit(){
-    this.timesService.getTimeById(this.timeId).subscribe(
-      (time) => {
-        this.time = time;
-      },
-      (error) => {
-        M.toast({html: 'Parâmetros inválidos!', classes: 'rounded'});
+    this.timesService
+      .getTimeById(this.timeId)
+      .then((time: Time)=>{
+        this.time
+      })
+      .catch((error)=>{
+        Util.exibirMensagem('Parâmetros inválidos!');
         this.router.navigate(['/times']);
-      }
-    );
+      })
   }
 
   getStatus(){

@@ -10,10 +10,9 @@ export class CadastrotimesComponent {
   @Input() time! : Time;
   @Input() atualiza! : boolean;
   @Input() listaTimes : Time[] = [];
-  @Output() exibeMensagem = new EventEmitter<string>();
   @Output() salvaTime = new EventEmitter<Time>();
   @Output() atualizaTime = new EventEmitter<Time>();
-  @Output() limpaFormulario = new EventEmitter<string>();
+  @Output() limpaFormulario = new EventEmitter();
 
   ngOnInit(){
     this.time = new Time("", "", true);
@@ -28,6 +27,6 @@ export class CadastrotimesComponent {
   }
 
   limparFormulario(){
-    this.limpaFormulario.emit("");
+    this.limpaFormulario.emit();
   }
 }

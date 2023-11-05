@@ -1,8 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { Util } from 'src/app/util/util';
 import { GerarchaveamentoService } from 'src/app/services/gerarchaveamento.service';
+import { catchError } from 'rxjs';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { CardCampeonatoComponent } from '../../shared/card-campeonato/card-campeonato.component';
 
 @Component({
   selector: 'app-listarchaveamento',
@@ -15,36 +18,35 @@ export class ListarchaveamentoComponent {
   @Input() listaCompetidoresSelecionados: any[] = [];
   @Input() tipoCompetidor!: string;
   @Input() chaveamento!: ChaveamentoCampeonato;
+  @ViewChild(CardCampeonatoComponent) cardCampeonato! : CardCampeonatoComponent;
 
   constructor(
     private chaveamentoService : GerarchaveamentoService,
     private router : Router
   ) { }
 
-  getNomeDoObjeto(nomeGrupo: any, index: number = 0){
+  getNomeDoObjeto(nomeGrupo: any, index: number = 0) : string{
     var array = this.chaveamento.Grupos.find((obj)=>{
       if(obj[0] == nomeGrupo){
         return obj;
       };
     });
-    if(this.tipoCompetidor == 'times'){
-      return Util.abreviarNomes(array[1][index].nomeTime);
-    } else {
-      return Util.abreviarNomes(array[1][index].nomeJogador);
-    }
+    return Util.abreviarNomes(array[1][index].nomeCompetidor);
   }
 
   iniciarCampeonato(){
     this.chaveamento.iniciado = true;
-    this.chaveamentoService.salvarChaveamento(this.chaveamento).subscribe(
-      () => {
-        M.toast({html: 'Cameponato Iniciado', classes: 'rounded'});
+    this.chaveamentoService
+      .salvarChaveamento(this.chaveamento)
+      .then(()=> {
+        Util.exibirMensagem('Campeonato Iniciado');
         this.router.navigate(['/inicio']);
-      },
-      (error) => {
-        M.toast({html: 'Selecione um campeonato', classes: 'rounded'});
-      }
-    );
+      })
+      .catch((error) =>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem('Selecione um campeonato');
+      })
   }
 
 }

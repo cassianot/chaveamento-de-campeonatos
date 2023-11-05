@@ -47,36 +47,36 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
   }
 
   getJogadores(){
-    this.jogadorService.getJogadores().subscribe(
-      (jogadores) => {
+    this.jogadorService
+      .getJogadores()
+      .then((jogadores) =>{
         this.listaCompetidores = jogadores;
-      },
-      (error) => {
+      })
+      .catch((error)=>{
         console.log(error);
-      }
-    );    
+      });
   }
 
   getCampeonatos(){
-    this.campeonatoService.getCampeonatos().subscribe(
-      (campeonatos) => {
+    this.campeonatoService
+      .getCampeonatos()
+      .then((campeonatos : Campeonato[]) =>{
         this.listaCampeonatos = Util.ordenaListaCameponato(campeonatos);
-      },
-      (error) => {
+      })
+      .catch((error) => {
         console.log(error);
-      }
-    );
+      })
   }
 
   getTimes(){
-    this.timeService.getTimes().subscribe(
-      (times) => {
+    this.timeService
+      .getTimes()
+      .then((times : Time[]) =>{
         this.listaCompetidores = times;
-      },
-      (error) => {
+      })
+      .catch((error) =>{
         console.log(error);
-      }
-    );    
+      });
   }
 
   selectionarTipoCompetidores(radio : string){
@@ -96,7 +96,6 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
   }
 
   gerarChaveamento(){
-    console.log(this.listaCompetidoresSelecionados);
     if(this.listaCompetidoresSelecionados.length < 16){
       M.toast({html: 'Precisa de pelo menos 16 jogadores/times', classes: 'rounded'});
       return;
@@ -104,33 +103,8 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
     Util.shuffle(this.listaCompetidoresSelecionados);
 
     this.chaveamento = new ChaveamentoCampeonato();
-    this.chaveamento.TipoCompetidor = this.tipoCompetidor;
     this.chaveamento.Campeonato = this.campeonato;
     this.chaveamento.setChaveamento(this.listaCompetidoresSelecionados);
-    
-    this.chaveamento.GrupoA.push(this.listaCompetidoresSelecionados[0]);
-    this.chaveamento.GrupoA.push(this.listaCompetidoresSelecionados[1]);
-
-    this.chaveamento.GrupoB.push(this.listaCompetidoresSelecionados[2]);
-    this.chaveamento.GrupoB.push(this.listaCompetidoresSelecionados[3]);
-
-    this.chaveamento.GrupoC.push(this.listaCompetidoresSelecionados[4]);
-    this.chaveamento.GrupoC.push(this.listaCompetidoresSelecionados[5]);
-
-    this.chaveamento.GrupoD.push(this.listaCompetidoresSelecionados[6]);
-    this.chaveamento.GrupoD.push(this.listaCompetidoresSelecionados[7]);
-
-    this.chaveamento.GrupoE.push(this.listaCompetidoresSelecionados[8]);
-    this.chaveamento.GrupoE.push(this.listaCompetidoresSelecionados[9]);
-
-    this.chaveamento.GrupoF.push(this.listaCompetidoresSelecionados[10]);
-    this.chaveamento.GrupoF.push(this.listaCompetidoresSelecionados[11]);
-
-    this.chaveamento.GrupoG.push(this.listaCompetidoresSelecionados[12]);
-    this.chaveamento.GrupoG.push(this.listaCompetidoresSelecionados[13]);
-
-    this.chaveamento.GrupoH.push(this.listaCompetidoresSelecionados[14]);
-    this.chaveamento.GrupoH.push(this.listaCompetidoresSelecionados[15]);
     
     this.listaChaveamento.visivel = true;
   }

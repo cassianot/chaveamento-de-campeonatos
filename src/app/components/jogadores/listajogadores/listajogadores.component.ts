@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Jogador } from 'src/app/model/jogador.model';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-listajogadores',
@@ -19,7 +20,7 @@ export class ListajogadoresComponent {
       jogador.ativo = !jogador.ativo;
       this.ativaDesativarJogador.emit(jogador);
     } else {
-      this.exibeMensagem.emit("Não é possível ativar/desativar enquanto está editando um Jogador!");
+      Util.exibirMensagem("Não é possível ativar/desativar enquanto está editando um Jogador!");
     }
   }
 

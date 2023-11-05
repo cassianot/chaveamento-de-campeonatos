@@ -14,13 +14,7 @@ export class ListarRelatorioComponent {
 
   getNomeDoObjeto(objeto: any){
     if(objeto !== undefined) {
-      if(this.chaveamento.TipoCompetidor == 'times') {
-        //return Util.abreviarNomes(objeto.nomeTime);
-        return objeto.nomeTime;
-      } else {
-        //return Util.abreviarNomes(objeto.nomeJogador);
-        return objeto.nomeJogador;
-      }
+      return objeto.nomeCompetidor;
     } else {
       return "Aguardando resultado";
     }
@@ -34,11 +28,7 @@ export class ListarRelatorioComponent {
     });
 
     if(array[1].length > 0 && array[1][index] !== undefined) {
-      if(this.chaveamento.TipoCompetidor == 'times'){
-        return array[1][index].nomeTime;
-      } else {
-        return array[1][index].nomeJogador;
-      }
+      return array[1][index].nomeCompetidor;
     } else {
       return "Aguardando resultado";
     }

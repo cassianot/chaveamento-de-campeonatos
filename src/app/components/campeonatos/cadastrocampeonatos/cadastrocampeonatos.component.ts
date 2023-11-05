@@ -27,13 +27,15 @@ export class CadastrocampeonatosComponent implements OnInit, AfterViewInit {
   constructor(private categoriaService : CategoriaService) { }
 
   ngAfterViewInit(): void {
-    this.categoriaService.getCategorias().subscribe(
-      categorias => {
-        this.listaCategorias = categorias;
-        this.ordenaListaCategoria();
-      }
-    );
-    
+    this.categoriaService
+    .getCategorias()
+    .then((c: Categoria[]) => {
+      this.listaCategorias = c;
+    })
+    .catch((error) =>{
+      console.log('Erro ao carregar categorias: ' + error);
+    });
+
     setTimeout(() => {
       M.FormSelect.init(this.comboCategorias?.nativeElement);
     }, 1000);

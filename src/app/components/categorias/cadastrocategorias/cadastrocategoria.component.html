@@ -10,7 +10,7 @@
               type="text"
               [(ngModel)]="this.categoria.nomeCategoria"
               #nomeCategoria = "ngModel"
-              minlength="8"
+              minlength="5"
               required
             />
             <label class="active" for="input-categoria">Categoria</label>
@@ -18,7 +18,7 @@
               Campo é obrigatório
             </div>
             <div class="red-text" *ngIf="!nomeCategoria.valid && nomeCategoria.touched">
-              Campo deve ter no mínimo 8 caracteres
+              Campo deve ter no mínimo 5 caracteres
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
               [disabled]="!formCategoria.valid"
-              (click)="this.cadastraCategoria();"
+              (click)="this.cadastraCategoria();formCategoria.reset();"
             >
               Salvar
               <i class="material-icons right">send</i>
@@ -59,7 +59,7 @@
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
               [disabled]="!formCategoria.valid"
-              (click)="this.editaCategoria();"
+              (click)="this.editaCategoria();formCategoria.reset();"
             >
               Atualizar
               <i class="material-icons right">send</i>
@@ -69,7 +69,7 @@
             <button
               class="btn waves-effect waves-light light-blue darken-4"
               type="submit"
-              (click)="this.limparFormulario();"
+              (click)="this.limparFormulario();formCategoria.reset();"
             >
             <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
               <ng-template minW #thenBlock>Cancelar</ng-template >

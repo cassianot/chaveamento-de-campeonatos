@@ -32,6 +32,7 @@ import { RelatorioCampeonatoComponent } from './components/relatorio-campeonato/
 import { ListarRelatorioComponent } from './components/relatorio-campeonato/listar-relatorio/listar-relatorio.component';
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { CardCampeonatoComponent } from './components/shared/card-campeonato/card-campeonato.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
     RelatorioCampeonatoComponent,
     ListarRelatorioComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    CardCampeonatoComponent
   ],
   imports: [
     BrowserModule,

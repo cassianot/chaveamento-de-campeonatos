@@ -1,4 +1,7 @@
 import { Campeonato } from "../model/campeonato.model";
+import { Categoria } from "../model/categoria.model";
+import { Jogador } from "../model/jogador.model";
+import { Time } from "../model/time.model";
 
 export class Util {
 
@@ -22,6 +25,18 @@ export class Util {
 
       public static ordenaListaCameponato(listaCampeonatos: Campeonato[]) : Campeonato[] {
         return listaCampeonatos.sort((a,b) => a.nomeCampeonato!.localeCompare(b.nomeCampeonato!));
+      }
+
+      public static ordenaListaCategoria(listaCategorias : Categoria[]) : Categoria[] {
+        return listaCategorias.sort((a,b) => a.nomeCategoria!.localeCompare(b.nomeCategoria!));
+      }
+
+      public static ordenaListaJogadores(listaJogadores : Jogador[]) : Jogador[] {
+        return listaJogadores.sort((a,b) => a.nomeCompetidor!.localeCompare(b.nomeCompetidor!));
+      }
+
+      public static ordenaListaTimes(listaTimes : Time[]) : Time[] {
+        return listaTimes.sort((a,b) => a.nomeCompetidor!.localeCompare(b.nomeCompetidor!));
       }
 
       public static abreviarNomes(nome: string) {

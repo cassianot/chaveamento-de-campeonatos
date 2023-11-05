@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Categoria } from 'src/app/model/categoria.model';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-listacategorias',
@@ -10,7 +11,6 @@ import { Categoria } from 'src/app/model/categoria.model';
 export class ListacategoriasComponent {
   @Input() listaCategorias : Categoria[] = [];
   @Input() atualiza! : boolean;
-  @Output() exibeMensagem = new EventEmitter<string>();
   @Output() ativaDesativarCategoria = new EventEmitter<Categoria>();
   @Output() editaCategoria = new EventEmitter<Categoria>();
 
@@ -19,7 +19,7 @@ export class ListacategoriasComponent {
       cat.ativo = !cat.ativo;
       this.ativaDesativarCategoria.emit(cat);
     } else {
-      this.exibeMensagem.emit("Não é possível ativar/desativar enquanto está editando uma categoria!");
+      Util.exibirMensagem("Não é possível ativar/desativar enquanto está editando uma categoria!");
     }
   }
 

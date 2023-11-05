@@ -46,7 +46,7 @@
                     [(ngModel)] = "listaCompetidoresSelecionados"
                 >
                     <option *ngFor="let competidor of listaCompetidores" [ngValue]="competidor">
-                        {{ getNomeDoObjeto(competidor) }}
+                        {{ competidor.nomeCompetidor }}
                     </option>
                 </select>
             </div>

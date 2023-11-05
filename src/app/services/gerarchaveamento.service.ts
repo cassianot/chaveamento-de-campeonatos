@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ChaveamentoCampeonato } from '../model/chaveamentoCampeonato';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, lastValueFrom } from 'rxjs';
 import { ErrorUtil } from '../util/ErrorUtil';
 import { RoutesAPI } from '../util/routes-api';
 
@@ -16,25 +16,35 @@ export class GerarchaveamentoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  getChaveamentos(): Observable<ChaveamentoCampeonato[]> {
-    return this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}`).pipe(
-      catchError(ErrorUtil.handleError)
+  async getChaveamentos(): Promise<ChaveamentoCampeonato[]> {
+    return await lastValueFrom(
+      this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}`)
     );
   }
 
-  salvarChaveamento(chaveamento: ChaveamentoCampeonato): Observable<ChaveamentoCampeonato> {
-    return this.httpClient.post<ChaveamentoCampeonato>(
-      `${RoutesAPI.CHAVEAMENTO}`,
-      chaveamento,
-      this.httpOptions
+  async getChaveamentosById(id: number): Promise<ChaveamentoCampeonato> {
+    return await lastValueFrom(
+      this.httpClient.get<ChaveamentoCampeonato>(`${RoutesAPI.CHAVEAMENTO}/${id}`)
     );
   }
 
-  atualizarChaveamento(chaveamento: ChaveamentoCampeonato): Observable<ChaveamentoCampeonato> {
-    return this.httpClient.put<ChaveamentoCampeonato>(
-      `${RoutesAPI.CHAVEAMENTO}/${chaveamento.id}`,
-      chaveamento,
-      this.httpOptions
+  async salvarChaveamento(chaveamento: ChaveamentoCampeonato): Promise<ChaveamentoCampeonato> {
+    return await lastValueFrom(
+      this.httpClient.post<ChaveamentoCampeonato>(
+        `${RoutesAPI.CHAVEAMENTO}`,
+        chaveamento,
+        this.httpOptions
+      )
+    );
+  }
+
+  async atualizarChaveamento(chaveamento: ChaveamentoCampeonato): Promise<ChaveamentoCampeonato> {
+    return await lastValueFrom(
+      this.httpClient.put<ChaveamentoCampeonato>(
+        `${RoutesAPI.CHAVEAMENTO}/${chaveamento.id}`,
+        chaveamento,
+        this.httpOptions
+      )
     );
   }
 }

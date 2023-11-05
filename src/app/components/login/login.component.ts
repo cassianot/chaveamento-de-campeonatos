@@ -33,8 +33,9 @@ export class LoginComponent implements AfterViewInit {
   }
 
   doLogin(user: User){
-    this.userService.getUser(user.email).subscribe(
-      (_user) => {
+    this.userService
+      .getUser(user.email)
+      .then((_user: User[]) => {
         if(Object.keys(_user).length == 0){
           Util.exibirMensagem('Login ou senha inválidos');
         } else {
@@ -46,11 +47,11 @@ export class LoginComponent implements AfterViewInit {
             this.route.navigate(['/inicio']);
           }
         }
-      },
-      (error) => {
-        Util.exibirMensagem('Erro: ' + error);
-      }
-    );
+      })
+      .catch((error) =>{
+        Util.exibirMensagem('Erro: Usuário ou senha inválidos');
+        console.log(error);
+      })
   }
 
   deslogar() {

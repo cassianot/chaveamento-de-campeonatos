@@ -1,19 +1,18 @@
-export class Time {
-    id? : number
-    nomeTime?: string;
+import { Competidor } from "./competidor.model";
+
+export class Time extends Competidor{
     descricaoTime?: string;
     ativo?: boolean
 
-    constructor(nomeTime: string, descricaoTime: string, ativo: boolean) {
-      this.nomeTime = nomeTime;
+    constructor(nomeCompetidor: string, descricaoTime: string, ativo: boolean) {
+      super(nomeCompetidor);
       this.descricaoTime = descricaoTime;
       this.ativo = ativo;
     }
 
     public static clone(time: Time) {
-      let _time : Time = new Time (time.nomeTime!, time.descricaoTime!, time.ativo!);
+      let _time : Time = new Time (time.nomeCompetidor!, time.descricaoTime!, time.ativo!);
       _time.id = time.id!;
       return _time;
     }
-
   }

@@ -4,8 +4,7 @@
             [listaTimes]="listaTimes"
             [time]="time"
             [atualiza]="atualiza"
-            (limpaFormulario)="limparFormulario($event)"
-            (exibeMensagem)="exibirMensagem($event)"
+            (limpaFormulario)="limparFormulario()"
             (salvaTime)="salvarTime($event)"
             (atualizaTime)="atualizarTime($event)"
     ></app-cadastrotimes>
@@ -13,7 +12,6 @@
     <app-listatimes 
             [atualiza]="atualiza"
             [listaTimes]="listaTimes" 
-            (exibeMensagem)="exibirMensagem($event)"
             (ativaDesativarTime)="ativarDesativarTime($event)"
             (editaTime)="editarTime($event)"
     ></app-listatimes>

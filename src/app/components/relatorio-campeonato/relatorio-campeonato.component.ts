@@ -2,6 +2,9 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { GerarchaveamentoService } from 'src/app/services/gerarchaveamento.service';
 import { ListarRelatorioComponent } from './listar-relatorio/listar-relatorio.component';
+import { catchError } from 'rxjs';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-relatorio-campeonato',
@@ -28,14 +31,16 @@ export class RelatorioCampeonatoComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.gestaoCampeonatoService.getChaveamentos().subscribe(
-      (chaveamentos) => {
-        this.listaChaveamento = chaveamentos;
-      },
-      (error) => {
+    this.gestaoCampeonatoService
+      .getChaveamentos()
+      .then((chaveamento : ChaveamentoCampeonato[]) => {
+        this.listaChaveamento = chaveamento;
+      })
+      .catch((error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      }
-    );
+        Util.exibirMensagem('Erro ao carregar relatório');
+      });
   }
 
   visualizarRelatorio() {

@@ -16,8 +16,7 @@ export class VisualizacampeonatoComponent {
 
   constructor(
     private campeonatoService: CampeonatoService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ){
     this.campeonato = new Campeonato("", new Categoria("","", true), "", true);
     if(route.snapshot.paramMap.has('id')){
@@ -26,15 +25,14 @@ export class VisualizacampeonatoComponent {
   }
 
   ngOnInit(){
-    this.campeonatoService.getCampeonatoById(this.campeonatoId).subscribe(
-      (campeonato) => {
+    this.campeonatoService
+      .getCampeonatoById(this.campeonatoId)
+      .then((campeonato : Campeonato) =>{
         this.campeonato = campeonato;
-      },
-      (error) => {
-        M.toast({html: 'Parâmetros inválidos!', classes: 'rounded'});
-        this.router.navigate(['/campeonatos']);
-      }
-    );
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   getStatus(){

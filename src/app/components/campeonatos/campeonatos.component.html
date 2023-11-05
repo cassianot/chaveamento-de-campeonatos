@@ -5,7 +5,6 @@
             [campeonato]="campeonato"
             [atualiza]="atualiza"
             (limpaFormulario)="limparFormulario($event)"
-            (exibeMensagem)="exibirMensagem($event)"
             (salvaCampeonato)="salvarCampeonato($event)"
             (atualizaCampeonato)="atualizarCampeonato($event)"
     ></app-cadastrocampeonatos>
@@ -13,7 +12,6 @@
     <app-listacampeonatos 
             [atualiza]="atualiza"
             [listaCampeonatos]="listaCampeonatos" 
-            (exibeMensagem)="exibirMensagem($event)"
             (ativaDesativarCampeonato)="ativarDesativarCampeonato($event)"
             (editaCampeonato)="editarCampeonato($event)"
     ></app-listacampeonatos>

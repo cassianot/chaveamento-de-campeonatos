@@ -1,7 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CampeonatoService } from 'src/app/services/campeonato.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-campeonatos',
@@ -25,60 +28,63 @@ export class CampeonatosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.campeonatoService.getCampeonatos().subscribe(
-      (campeonatos) => {
-        this.listaCampeonatos = campeonatos;
-        this.ordenaLista();
-      },
-      (error) => {
+    this.campeonatoService
+      .getCampeonatos()
+      .then((campeonatos : Campeonato[]) =>{
+        this.listaCampeonatos = Util.ordenaListaCameponato(campeonatos);
+      })
+      .catch((error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      }
-    );
-  }
-
-  exibirMensagem(mensagem: string){
-    M.toast({html: mensagem, classes: 'rounded'});
+      })
   }
 
   salvarCampeonato(campeonato: Campeonato){
-    this.campeonatoService.salvarCampeonato(campeonato).subscribe(
-      (_campeonato) => {
+    this.campeonatoService
+      .salvarCampeonato(campeonato)
+      .then((_campeonato : Campeonato) =>{
         this.listaCampeonatos.push(_campeonato);
-        this.ordenaLista();
+        Util.ordenaListaCameponato(this.listaCampeonatos);
         this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
-        this.exibirMensagem(`Campeonato salva com sucesso: ${campeonato.nomeCampeonato}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao salvar campeonato: ${campeonato.nomeCampeonato}`);
-      }
-    );
+        Util.exibirMensagem(`Campeonato salva com sucesso: ${campeonato.nomeCampeonato}`);
+      })
+      .catch((error)=>{
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao salvar campeonato: ${campeonato.nomeCampeonato}`);
+      });
   }
 
   atualizarCampeonato(campeonato: Campeonato){
-    this.campeonatoService.atualizarCampeonato(campeonato).subscribe(
-      (_campeonato) => {
+    this.campeonatoService
+      .atualizarCampeonato(campeonato)
+      .then((_campeonato : Campeonato) => {
         this.listaCampeonatos.splice(this.listaCampeonatos.indexOf(this.campeonatoOld), 1);
         this.listaCampeonatos.push(_campeonato);
         this.atualiza = false;
         this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
-        this.ordenaLista();
-        this.exibirMensagem(`Campeonato atualizada com sucesso: ${campeonato.nomeCampeonato}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar campeonato: ${campeonato.nomeCampeonato}`);
-      }
-    );
+        Util.ordenaListaCameponato(this.listaCampeonatos);
+        Util.exibirMensagem(`Campeonato atualizada com sucesso: ${campeonato.nomeCampeonato}`);
+      })
+      .catch((error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao atualizar campeonato: ${campeonato.nomeCampeonato}`);
+      })
   }
 
   ativarDesativarCampeonato(campeonato: Campeonato){
-    this.campeonatoService.atualizarCampeonato(campeonato).subscribe(
-      (_campeonato) => {
-        this.exibirMensagem(`Status atualizado: ${campeonato.nomeCampeonato}`);
-      },
-      (error) => {
-        this.exibirMensagem(`Erro ao atualizar status: ${campeonato.nomeCampeonato}`);
-      }
-    );
+    this.campeonatoService
+      .atualizarCampeonato(campeonato)
+      .then((_campeonato : Campeonato) => {
+        Util.exibirMensagem(`Status atualizado: ${campeonato.nomeCampeonato}`);
+      })
+      .catch((error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+        Util.exibirMensagem(`Erro ao atualizar status: ${campeonato.nomeCampeonato}`);
+      })
+
   }
 
   editarCampeonato(campeonato: Campeonato){
@@ -91,9 +97,4 @@ export class CampeonatosComponent implements OnInit {
     this.campeonato = new Campeonato("", new Categoria("","",true), "", true);
     this.atualiza = false;
   }
-
-  ordenaLista(){
-    this.listaCampeonatos.sort((a,b) => a.nomeCampeonato!.localeCompare(b.nomeCampeonato!));
-  }
-
 }
