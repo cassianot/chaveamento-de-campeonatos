@@ -6,7 +6,7 @@ Com as informações, o software fará a geração dos jogos e disponibilizará 
 
 ## Endereço de Deploy - GitHub Pages
 
-https://cassianot.github.io/chaveamento-de-campeonatos/login
+https://cassianot.github.io/chaveamento-de-campeonatos
 
 ## Protótipo
 
@@ -37,8 +37,19 @@ https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?t
 - [x] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 ## Manual de execução
-Após baixar o projeto, execute o comando npm install para instalar os módulos.
-
-Para iniciar o dbjson (banco de dados): json-server --watch dbjson/db.json
-
-execute ng serve para iniciar o projeto
+- Clonar o repositório com `git clone`
+- Fazer checkout no branch `develop` que contém as modificações mais recentes
+- Abrir o projeto no editor Visual Studio Code (VS Code)
+- Abrir um terminal pelo VSCode ou qualquer terminal do seu Sistema Operacional apontando para o diretório raiz do projeto 
+- Instalar as dependências contidas no `package.json`
+  - Comando: `npm install`
+- (Opcional) Instalar o JSON Server globalmente disponível em `https://www.npmjs.com/package/json-server`
+  - Comando: `npm install -g json-server` 
+  - É opcional porque a dependência já vem cadastrada no arquivo `package.json` para instalação local na pasta `node_modules`
+- Executar a API Fake (JSON Server) via um dos seguintes comandos: 
+  - Execução via script registrado no `package.json`: `npm run json:server --watch dbjson/db.json` 
+  - Ou via Execução explícita: `json-server --watch dbjson/db.json`
+- O comando para execução do JSON Server deve ser aplicado no diretório `dbjson` do projeto, ou seja, que contém o arquivo `db.json`.
+  - Por padrão, a aplicação JSON Server executa no endereço `localhost:3000`    
+- Abrir um novo terminal pelo VSCode e então executar o projeto Angular
+  - Comando: `ng serve`
