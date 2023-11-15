@@ -1,0 +1,20 @@
+<div class="container contact">
+
+    <app-cadastrotimes
+            [listaTimes]="listaTimes"
+            [time]="time"
+            [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario()"
+            (salvaTime)="salvarTime($event)"
+            (atualizaTime)="atualizarTime($event)"
+    ></app-cadastrotimes>
+
+    <app-listatimes 
+            [atualiza]="atualiza"
+            [listaTimes]="listaTimes" 
+            (ativaDesativarTime)="ativarDesativarTime($event)"
+            (editaTime)="editarTime($event)"
+    ></app-listatimes>
+    <router-outlet></router-outlet>
+    
+</div>

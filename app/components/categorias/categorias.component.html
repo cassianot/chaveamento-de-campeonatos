@@ -1,0 +1,20 @@
+<div class="container contact">
+
+    <app-cadastro-categorias 
+            [listaCategorias]="listaCategorias"
+            [categoria]="categoria"
+            [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario()"
+            (salvaCategoria)="salvarCategoria($event)"
+            (atualizaCategoria)="atualizarCategoria($event)"
+    ></app-cadastro-categorias>
+
+    <app-listacategorias 
+            [atualiza]="atualiza"
+            [listaCategorias]="listaCategorias" 
+            (ativaDesativarCategoria)="ativarDesativarCategoria($event)"
+            (editaCategoria)="editarCategoria($event)"
+    ></app-listacategorias>
+    <router-outlet></router-outlet>
+    
+</div>

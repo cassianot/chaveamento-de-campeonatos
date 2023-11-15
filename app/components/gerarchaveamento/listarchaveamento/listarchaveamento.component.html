@@ -1,0 +1,185 @@
+<span *ngIf="visivel">
+    <h5>Fase inicial</h5>
+    <hr />
+    <div class="row">
+        <!-- Chave 1 -->
+          <!-- linha 1-->
+          <div class="row">
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo A"
+                competidor1 = "{{getNomeDoObjeto('GrupoA', 0)}}"
+                competidor2 = "{{getNomeDoObjeto('GrupoA', 1)}}"
+              />
+            </div>
+            <div class="col s3"></div>
+            <div class="col s3"></div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo E"
+                competidor1 = "{{getNomeDoObjeto('GrupoE', 0)}}"
+                competidor2 = "{{getNomeDoObjeto('GrupoE', 1)}}"
+              />
+            </div>
+          </div>
+          <!-- /linha 1-->
+    
+          <!-- linha 2-->
+          <div class="row">
+            <div class="col s3"></div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo I"
+                competidor1 = "Venc. Grupo A"
+                competidor2 = "Venc. Grupo B"
+              />
+            </div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo K"
+                competidor1 = "Venc. Grupo F"
+                competidor2 = "Venc. Grupo G"
+              />
+            </div>
+            <div class="col s3"></div>
+          </div>
+          <!-- /linha 2-->
+    
+          <!-- linha 3-->
+          <div class="row">
+          <div class="col s3 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo B"
+              competidor1 = "{{getNomeDoObjeto('GrupoB', 0)}}"
+              competidor2 = "{{getNomeDoObjeto('GrupoB', 1)}}"
+            />
+          </div>
+          <div class="col s3"></div>
+          <div class="col s3"></div>
+          <div class="col s3 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo F"
+              competidor1 = "{{getNomeDoObjeto('GrupoF', 0)}}"
+              competidor2 = "{{getNomeDoObjeto('GrupoF', 1)}}"
+            />
+          </div>
+          </div>
+          <!-- /linha 3-->
+        <!-- /Chave 1 -->
+        <!-- Chave 2 -->
+          <!-- linha 1-->
+          <div class="row">
+          <div class="col s3 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo C"
+              competidor1 = "{{getNomeDoObjeto('GrupoC', 0)}}"
+              competidor2 = "{{getNomeDoObjeto('GrupoC', 1)}}"
+            />
+          </div>
+          <div class="col s3"></div>
+          <div class="col s3"></div>
+          <div class="col s3 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo G"
+              competidor1 = "{{getNomeDoObjeto('GrupoG', 0)}}"
+              competidor2 = "{{getNomeDoObjeto('GrupoG', 1)}}"
+            />
+          </div>
+          </div>
+          <!-- /linha 1-->
+    
+          <!-- linha 2-->
+          <div class="row">
+            <div class="col s3"></div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo J"
+                competidor1 = "Venc. Grupo C"
+                competidor2 = "Venc. Grupo D"
+              />
+            </div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo L"
+                competidor1 = "Venc. Grupo H"
+                competidor2 = "Venc. Grupo I"
+              />
+            </div>
+            <div class="col s3"></div>
+          </div>
+          <!-- /linha 2-->
+    
+          <!-- linha 3-->
+          <div class="row">
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo D"
+                competidor1 = "{{getNomeDoObjeto('GrupoD', 0)}}"
+                competidor2 = "{{getNomeDoObjeto('GrupoD', 1)}}"
+              />
+            </div>
+            <div class="col s3"></div>
+            <div class="col s3"></div>
+            <div class="col s3 border-box">
+              <app-card-campeonato
+                tituloGrupo = "Grupo H"
+                competidor1 = "{{getNomeDoObjeto('GrupoH', 0)}}"
+                competidor2 = "{{getNomeDoObjeto('GrupoH', 1)}}"
+              />
+            </div>
+          </div>
+          <!-- /linha 3-->
+        <!-- /Chave 2 -->
+      </div>
+      <h5>Semifinal</h5>
+      <hr />
+      <div class="row">
+        <div class="col s6 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo M"
+              competidor1 = "Venc. Grupo I"
+              competidor2 = "Venc. Grupo J"
+            />
+          </div>
+          <div class="col s6 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Grupo N"
+              competidor1 = "Venc. Grupo K"
+              competidor2 = "Venc. Grupo L"
+            />
+          </div>
+      </div>
+
+      <hr />
+      <div class="row">
+        <div class="col s12 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Disputa 3o Lugar"
+              competidor1 = "Perdedor Grupo M"
+              competidor2 = "Perdedor Grupo N"
+            />
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col s12 border-box">
+            <app-card-campeonato
+              tituloGrupo = "Final"
+              competidor1 = "Venc. Grupo M"
+              competidor2 = "Venc. Grupo N"
+            />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s3">
+          <button
+            class="btn waves-effect waves-light light-blue darken-4"
+            type="submit"
+            (click)="this.iniciarCampeonato();"
+          >
+            Iniciar Campeonato
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+</span>

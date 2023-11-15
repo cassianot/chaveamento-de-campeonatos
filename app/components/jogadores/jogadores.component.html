@@ -1,0 +1,20 @@
+<div class="container contact">
+
+    <app-cadastrajogador 
+            [listajogadores]="listaJogadores"
+            [jogador]="jogador"
+            [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario()"
+            (salvaJogador)="salvarJogador($event)"
+            (atualizaJogador)="atualizarJogador($event)"
+    ></app-cadastrajogador>
+
+    <app-listajogadores 
+            [atualiza]="atualiza"
+            [listajogadores]="listaJogadores"
+            (ativaDesativarJogador)="ativarDesativarJogador($event)"
+            (editaJogador)="editarJogador($event)"
+    ></app-listajogadores>
+    <router-outlet></router-outlet>
+    
+</div>

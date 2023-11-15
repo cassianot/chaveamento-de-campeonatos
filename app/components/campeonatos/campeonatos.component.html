@@ -1,0 +1,20 @@
+<div class="container contact">
+
+    <app-cadastrocampeonatos 
+            [listaCampeonatos]="listaCampeonatos"
+            [campeonato]="campeonato"
+            [atualiza]="atualiza"
+            (limpaFormulario)="limparFormulario($event)"
+            (salvaCampeonato)="salvarCampeonato($event)"
+            (atualizaCampeonato)="atualizarCampeonato($event)"
+    ></app-cadastrocampeonatos>
+
+    <app-listacampeonatos 
+            [atualiza]="atualiza"
+            [listaCampeonatos]="listaCampeonatos" 
+            (ativaDesativarCampeonato)="ativarDesativarCampeonato($event)"
+            (editaCampeonato)="editarCampeonato($event)"
+    ></app-listacampeonatos>
+    <router-outlet></router-outlet>
+    
+</div>

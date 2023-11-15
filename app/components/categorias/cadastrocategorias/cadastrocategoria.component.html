@@ -1,0 +1,82 @@
+    <h5>Cadastro de Categorias</h5>
+    <hr />
+    <div class="row">
+      <form class="col s12" #formCategoria="ngForm">
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+              name="input-categoria"
+              id="input-categoria"
+              type="text"
+              [(ngModel)]="this.categoria.nomeCategoria"
+              #nomeCategoria = "ngModel"
+              minlength="5"
+              required
+            />
+            <label class="active" for="input-categoria">Categoria</label>
+            <div class="red-text" *ngIf="nomeCategoria.errors?.required && nomeCategoria.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!nomeCategoria.valid && nomeCategoria.touched">
+              Campo deve ter no mínimo 5 caracteres
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea 
+              name="input-description"
+              id="input-description"
+              class="materialize-textarea"
+              [(ngModel)]="this.categoria.descricaoCategoria"
+              #descricaoCategoria = "ngModel"
+              minlength="8"
+              required
+            ></textarea>
+            <div class="red-text" *ngIf="descricaoCategoria.errors?.required && descricaoCategoria.touched">
+              Campo é obrigatório
+            </div>
+            <div class="red-text" *ngIf="!descricaoCategoria.valid && descricaoCategoria.touched">
+              Campo deve ter no mínimo 8 caracteres
+            </div>
+            <label class="active" for="input-description">Descrição</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3">
+            <button
+              *ngIf="atualiza == false"
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              [disabled]="!formCategoria.valid"
+              (click)="this.cadastraCategoria();formCategoria.reset();"
+            >
+              Salvar
+              <i class="material-icons right">send</i>
+            </button>
+            <button
+              *ngIf="atualiza"
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              [disabled]="!formCategoria.valid"
+              (click)="this.editaCategoria();formCategoria.reset();"
+            >
+              Atualizar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <div class="col s9">
+            <button
+              class="btn waves-effect waves-light light-blue darken-4"
+              type="submit"
+              (click)="this.limparFormulario();formCategoria.reset();"
+            >
+            <div *ngIf="this.atualiza == true; then thenBlock else elseBlock"></div>
+              <ng-template minW #thenBlock>Cancelar</ng-template >
+              <ng-template #elseBlock>Limpar</ng-template >
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>  
