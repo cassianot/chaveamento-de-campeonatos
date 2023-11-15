@@ -6,7 +6,7 @@ Com as informações, o software fará a geração dos jogos e disponibilizará 
 
 ## Endereço de Deploy - GitHub Pages
 
-//TODO
+https://cassianot.github.io/chaveamento-de-campeonatos/login
 
 ## Protótipo
 
@@ -34,7 +34,7 @@ https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?t
 - [x] Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 - [x] Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas.
 - [x] Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
-- [ ] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
+- [x] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 ## Manual de execução
 Após baixar o projeto, execute o comando npm install para instalar os módulos.
