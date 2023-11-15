@@ -33,6 +33,7 @@ import { ListarRelatorioComponent } from './components/relatorio-campeonato/list
 import { LoginComponent } from './components/login/login.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CardCampeonatoComponent } from './components/shared/card-campeonato/card-campeonato.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { CardCampeonatoComponent } from './components/shared/card-campeonato/car
     ListarRelatorioComponent,
     LoginComponent,
     InicioComponent,
-    CardCampeonatoComponent
+    CardCampeonatoComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

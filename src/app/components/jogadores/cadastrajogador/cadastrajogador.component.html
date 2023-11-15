@@ -87,10 +87,10 @@
         </div>
     </div>
     <div class="row">
-      <div class="col s3">
+      <div class="col s4 l2">
         <button
           *ngIf="atualiza == false"
-          class="btn waves-effect waves-light light-blue darken-4"
+          class="btn waves-effect waves-light red darken-4"
           type="submit"
           (click)="this.cadastraJogador();formJogadores.reset()"
           [disabled]="!formJogadores.valid"
@@ -100,7 +100,7 @@
         </button>
         <button
           *ngIf="atualiza"
-          class="btn waves-effect waves-light light-blue darken-4"
+          class="btn waves-effect waves-light red darken-4"
           type="submit"
           (click)="this.editaJogador();formJogadores.reset()"
           [disabled]="!formJogadores.valid"
@@ -109,9 +109,9 @@
           <i class="material-icons right">send</i>
         </button>
       </div>
-      <div class="col s9">
+      <div class="col s8 l10">
         <button
-          class="btn waves-effect waves-light light-blue darken-4"
+          class="btn waves-effect waves-light red darken-4"
           type="submit"
           (click)="this.limparFormulario(); formJogadores.reset()"
         >

@@ -1,11 +1,11 @@
-<div class="container contact">
+<div class="container-fluid">
 
     <h5>Relatório</h5>
     <hr />
     <div class="row">
         <form class="col s12">
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12 l6">
                     <select
                         name="select-campeonato"
                         id="select-campeonato"
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col s3">
                     <button
-                    class="btn waves-effect waves-light light-blue darken-4"
+                    class="btn waves-effect waves-light red darken-4"
                     type="submit"
                     (click)="this.visualizarRelatorio();"
                     [disabled]="!selectPreenchido"

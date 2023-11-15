@@ -6,7 +6,6 @@ import { TimesService } from 'src/app/services/times.service';
 import { ListarchaveamentoComponent } from './listarchaveamento/listarchaveamento.component';
 import { Util } from 'src/app/util/util';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
-import { Time } from 'src/app/model/time.model';
 import { ErrorUtil } from 'src/app/util/ErrorUtil';
 import { catchError } from 'rxjs';
 
@@ -99,6 +98,10 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
     } else {
       return objeto.nomeJogador;
     }
+  }
+
+  selecionarTodos(){
+    this.listaCompetidoresSelecionados = this.listaCompetidores;
   }
 
   gerarChaveamento(){

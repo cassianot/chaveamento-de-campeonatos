@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import * as M from 'materialize-css';
-import { WebStorageUtil } from 'src/app/util/web-storage-util';
 
 @Component({
   selector: 'app-menu',
@@ -23,10 +22,6 @@ export class MenuComponent implements AfterViewInit {
     M.Sidenav.init(this.sideNav?.nativeElement);
     M.Dropdown.init(this.dropDown?.nativeElement, {hover:false});
     M.Collapsible.init(this.colapse?.nativeElement, {accordion:true});
-  }
-
-  logado(){
-    return !WebStorageUtil.get('logged_in');
   }
   
 }

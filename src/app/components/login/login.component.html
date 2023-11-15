@@ -1,17 +1,3 @@
-<div class="container">
-    <div class="row">
-        <div class="col s12">
-            <button
-            class="btn-large waves-effect waves-light light-blue darken-4"
-            type="submit"
-            (click)="openLogin()"
-            >
-            Entrar
-            </button>
-        </div>
-    </div>
-</div>
-
 <div id="modalLogin" class="modal" #modalLogin>
     <div class="row">
         <form class="col s12" #formLogin="ngForm" (ngSubmit)="doLogin(formLogin.value)">
@@ -63,7 +49,7 @@
             <p class="small">
                 User: email@email.com / Senha: 123456789
                 <button
-                    class="btn waves-effect waves-light light-blue darken-4"
+                    class="btn waves-effect waves-light red darken-4"
                     (click)="autopreencher()"
                 >
                 Autopreencher
@@ -74,7 +60,7 @@
             <div class="row">
                 <div class="col s13">
                     <button
-                    class="btn waves-effect waves-light light-blue darken-4"
+                    class="btn waves-effect waves-light red darken-4"
                     type="submit"
                     [disabled]="!formLogin.valid"
                     >

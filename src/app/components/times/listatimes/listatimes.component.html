@@ -1,47 +1,47 @@
-<div class="row">
-    <table>
-      <thead>
-        <tr>
-            <th>Time</th>
-            <th>Descrição</th>
-            <th>Ação</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let time of listaTimes">
-          <td>{{time.nomeCompetidor | uppercase}}</td>
-          <td>{{time.descricaoTime}}</td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            (click)="ativarDesativarTime(time);"
-          >
-            <div *ngIf="time.ativo == true; then thenBlock else elseBlock"></div>
-              <ng-template minW #thenBlock>Desativar</ng-template >
-              <ng-template #elseBlock>Ativar</ng-template >
-            </button>
-          </td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            (click)="editarTime(time);"
-          >
-            Editar
-            </button>
-          </td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            [routerLink]="['/times', time.id]"
-          >
-            Ver detalhes
-            </button>
-          </td>
+  <div class="row">
+  <table class="striped responsive-table">
+    <thead>
+      <tr>
+          <th>Time</th>
+          <th>Descrição</th>
+          <th colspan="3">Ações</th>
       </tr>
-      </tbody>
-    </table>
-  </div>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let time of listaTimes">
+        <td>{{time.nomeCompetidor | uppercase}}</td>
+        <td>{{time.descricaoTime}}</td>
+        <td>
+          <button
+          class="btn-small waves-effect waves-light red darken-4"
+          type="submit"
+          (click)="ativarDesativarTime(time);"
+        >
+          <div *ngIf="time.ativo == true; then thenBlock else elseBlock"></div>
+            <ng-template minW #thenBlock>Desativar</ng-template >
+            <ng-template #elseBlock>Ativar</ng-template >
+          </button>
+        </td>
+        <td>
+          <button
+          class="btn-small waves-effect waves-light red darken-4"
+          type="submit"
+          (click)="editarTime(time);"
+        >
+          Editar
+          </button>
+        </td>
+        <td>
+          <button
+          class="btn-small waves-effect waves-light red darken-4"
+          type="submit"
+          [routerLink]="['/times', time.id]"
+        >
+          Ver detalhes
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

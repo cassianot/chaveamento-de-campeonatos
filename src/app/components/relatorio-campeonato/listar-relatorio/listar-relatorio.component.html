@@ -1,7 +1,7 @@
 <span *ngIf="visivel">
     <hr />
     <div class="row">
-        <div class="col s2">
+        <div class="col s4">
             Fase de Grupos
             <hr />
             Grupo A
@@ -36,7 +36,7 @@
             <p>{{getNomeDoCompetidor('GrupoH', 0)}}</p>
             <p>{{getNomeDoCompetidor('GrupoH', 1)}}</p>
         </div>
-        <div class="col s2">
+        <div class="col s4">
             Quartas de Final
             <hr />
             Grupo I
@@ -55,7 +55,7 @@
             <p>{{getNomeDoCompetidor('GrupoL', 0)}}</p>
             <p>{{getNomeDoCompetidor('GrupoL', 1)}}</p>
         </div>
-        <div class="col s2">
+        <div class="col s4">
             Semifinal
             <hr />
             Grupo M
@@ -66,19 +66,24 @@
             <p>{{getNomeDoCompetidor('GrupoN', 0)}}</p>
             <p>{{getNomeDoCompetidor('GrupoN', 1)}}</p>
         </div>
-        <div class="col s2">
+    </div>
+    <div class="row">
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col s4">
             Disputa 3o Lugar
             <hr />
             <p>{{getNomeDoCompetidor('GrupoTerceiroLugar', 0)}}</p>
             <p>{{getNomeDoCompetidor('GrupoTerceiroLugar', 1)}}</p>
         </div>
-        <div class="col s2">
+        <div class="col s4">
             Final
             <hr />
             <p>{{getNomeDoCompetidor('GrupoFinal', 0)}}</p>
             <p>{{getNomeDoCompetidor('GrupoFinal', 1)}}</p>
         </div>
-        <div class="col s2">
+        <div class="col s4">
             Pódio
             <hr />
             1o - <p>{{getNomeDoObjeto(this.chaveamento.Campeao)}}</p>

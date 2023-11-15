@@ -1,49 +1,47 @@
-<div class="row">
-    <table>
-      <thead>
-        <tr>
-            <th>Campeonato</th>
-            <th>Categoria</th>
-            <th>Descrição</th>
-            <th>Ação</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let campeonato of listaCampeonatos">
-          <td>{{campeonato.nomeCampeonato | uppercase}}</td>
-          <td>{{campeonato.categoria?.nomeCategoria | uppercase}}</td>
-          <td>{{campeonato.descricaoCampeonato}}</td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            (click)="ativarDesativarCampeonato(campeonato);"
-          >
-            <div *ngIf="campeonato.ativo == true; then thenBlock else elseBlock"></div>
-              <ng-template minW #thenBlock>Desativar</ng-template >
-              <ng-template #elseBlock>Ativar</ng-template >
-            </button>
-          </td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            (click)="editarCampeonato(campeonato);"
-          >
-            Editar
-            </button>
-          </td>
-          <td>
-            <button
-            class="btn waves-effect waves-light light-blue darken-4"
-            type="submit"
-            [routerLink]="['/campeonatos', campeonato.id]"
-          >
-            Ver detalhes
-            </button>
-          </td>
+  <table class="striped responsive-table">
+    <thead>
+      <tr>
+          <th>Campeonato</th>
+          <th>Categoria</th>
+          <th>Descrição</th>
+          <th colspan="3">Ações</th>
       </tr>
-      </tbody>
-    </table>
-  </div>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let campeonato of listaCampeonatos">
+        <td>{{campeonato.nomeCampeonato | uppercase}}</td>
+        <td>{{campeonato.categoria?.nomeCategoria | uppercase}}</td>
+        <td>{{campeonato.descricaoCampeonato}}</td>
+        <td>
+          <button
+          class="btn waves-effect waves-light red darken-4"
+          type="submit"
+          (click)="ativarDesativarCampeonato(campeonato);"
+        >
+          <div *ngIf="campeonato.ativo == true; then thenBlock else elseBlock"></div>
+            <ng-template minW #thenBlock>Desativar</ng-template >
+            <ng-template #elseBlock>Ativar</ng-template >
+          </button>
+        </td>
+        <td>
+          <button
+          class="btn waves-effect waves-light red darken-4"
+          type="submit"
+          (click)="editarCampeonato(campeonato);"
+        >
+          Editar
+          </button>
+        </td>
+        <td>
+          <button
+          class="btn waves-effect waves-light red darken-4"
+          type="submit"
+          [routerLink]="['/campeonatos', campeonato.id]"
+        >
+          Ver detalhes
+          </button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
