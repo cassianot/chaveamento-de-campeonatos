@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "ghpages": "angular-cli-ghpages --dir=dist/chaveamento-campeonato",
     "deploy": "npm run build & npm run ghpages",
-    "json:server": "json-server --watch db.json",
+    "json:server": "json-server --watch dbjson/db.json",
     "test": "ng test"
   },
   "private": true,
