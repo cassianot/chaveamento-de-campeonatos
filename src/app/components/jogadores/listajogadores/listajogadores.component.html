@@ -10,7 +10,7 @@
 
       <tbody>
         <tr *ngFor="let jogador of listajogadores">
-          <td>{{jogador.nomeCompetidor}}</td>
+          <td>{{jogador.nomeCompetidor | uppercase}}</td>
           <td>{{jogador.dataNascimento}}</td>
           <td>{{jogador.cidade}}</td>
           <td>
@@ -37,7 +37,7 @@
             <button
             class="btn waves-effect waves-light light-blue darken-4"
             type="submit"
-            [routerLink]="['/jogador', jogador.id]"
+            [routerLink]="['/jogadores', jogador.id]"
           >
             Ver detalhes
             </button>

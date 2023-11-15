@@ -7,6 +7,8 @@ import { ListarchaveamentoComponent } from './listarchaveamento/listarchaveament
 import { Util } from 'src/app/util/util';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { Time } from 'src/app/model/time.model';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-gerarchaveamento',
@@ -47,36 +49,40 @@ export class GerarchaveamentoComponent implements AfterViewInit, OnInit {
   }
 
   getJogadores(){
-    this.jogadorService
-      .getJogadores()
-      .then((jogadores) =>{
+    this.jogadorService.getJogadores().subscribe({
+      next: (jogadores) => {
         this.listaCompetidores = jogadores;
-      })
-      .catch((error)=>{
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      });
+      }
+    });
   }
 
   getCampeonatos(){
-    this.campeonatoService
-      .getCampeonatos()
-      .then((campeonatos : Campeonato[]) =>{
+    this.campeonatoService.getCampeonatos().subscribe({
+      next: (campeonatos) => {
+        this.listaCampeonatos = campeonatos;
         this.listaCampeonatos = Util.ordenaListaCameponato(campeonatos);
-      })
-      .catch((error) => {
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      })
+      }
+    });
   }
 
   getTimes(){
-    this.timeService
-      .getTimes()
-      .then((times : Time[]) =>{
+    this.timeService.getTimes().subscribe({
+      next: (times) => {
         this.listaCompetidores = times;
-      })
-      .catch((error) =>{
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      });
+      }
+    });
   }
 
   selectionarTipoCompetidores(radio : string){

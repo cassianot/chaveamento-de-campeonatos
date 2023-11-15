@@ -3,6 +3,9 @@ import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { GerarchaveamentoService } from 'src/app/services/gerarchaveamento.service';
 import { GerirCampeonatoComponent } from './gerir-campeonato/gerir-campeonato.component';
 import { ActivatedRoute } from '@angular/router';
+import { catchError } from 'rxjs';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-gestaocampeonato',
@@ -39,14 +42,16 @@ export class GestaocampeonatoComponent implements AfterViewInit, OnInit{
   }
 
   ngOnInit(): void {
-    this.gestaoCampeonatoService
-      .getChaveamentos(true)
-      .then((chaveamento : ChaveamentoCampeonato[]) => {
-        this.listaChaveamento = chaveamento;
-      })
-      .catch((error) => {
+    this.gestaoCampeonatoService.getChaveamentos(true).subscribe({
+      next: (chaveamentos) => {
+        this.listaChaveamento = chaveamentos;
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      });
+        Util.exibirMensagem('Erro ao carregar chaveamento');
+      }
+    });
   }
 
   visualizaChaveamentoPorParametro(id : number){

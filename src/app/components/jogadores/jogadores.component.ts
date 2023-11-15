@@ -26,15 +26,17 @@ export class JogadoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jogadorService
-      .getJogadores()
-      .then((jogadores)=>{
+    this.jogadorService.getJogadores().subscribe({
+      next: (jogadores) => {
         this.listaJogadores = jogadores;
         Util.ordenaListaJogadores(this.listaJogadores);
-      })
-      .catch((error)=>{
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      })
+        Util.exibirMensagem('Erro ao carregar jogadores');
+      }
+    });
   }
 
   salvarJogador(jogador: Jogador){

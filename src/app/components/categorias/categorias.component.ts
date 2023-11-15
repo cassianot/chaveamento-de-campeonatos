@@ -26,13 +26,14 @@ export class CategoriasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoriaService
-    .getCategorias()
-    .then((c: Categoria[]) => {
-      this.listaCategorias = c;
-    })
-    .catch((error) =>{
-      console.log('Erro ao carregar categorias: ' + error);
+    this.categoriaService.getCategorias().subscribe({
+      next: (categorias) => {
+        this.listaCategorias = categorias;
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+      }
     });
   }
 

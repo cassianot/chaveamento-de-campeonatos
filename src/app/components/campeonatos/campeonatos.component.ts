@@ -28,15 +28,16 @@ export class CampeonatosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.campeonatoService
-      .getCampeonatos()
-      .then((campeonatos : Campeonato[]) =>{
-        this.listaCampeonatos = Util.ordenaListaCameponato(campeonatos);
-      })
-      .catch((error) => {
-        catchError(ErrorUtil.handleError);
-        console.log(error);
-      })
+      this.campeonatoService.getCampeonatos().subscribe({
+        next: (campeonatos) => {
+          this.listaCampeonatos = campeonatos;
+          this.listaCampeonatos = Util.ordenaListaCameponato(campeonatos);
+        },
+        error: (error) => {
+          catchError(ErrorUtil.handleError);
+          console.log(error);
+        }
+      });
   }
 
   salvarCampeonato(campeonato: Campeonato){

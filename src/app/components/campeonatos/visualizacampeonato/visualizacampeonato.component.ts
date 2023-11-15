@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError } from 'rxjs';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CampeonatoService } from 'src/app/services/campeonato.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
+import { Util } from 'src/app/util/util';
 
 @Component({
   selector: 'app-visualizacampeonato',
@@ -25,14 +28,16 @@ export class VisualizacampeonatoComponent {
   }
 
   ngOnInit(){
-    this.campeonatoService
-      .getCampeonatoById(this.campeonatoId)
-      .then((campeonato : Campeonato) =>{
-        this.campeonato = campeonato;
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      this.campeonatoService.getCampeonatoById(this.campeonatoId).subscribe({
+        next: (campeonato) => {
+          this.campeonato = campeonato;
+        },
+        error: (error) => {
+          catchError(ErrorUtil.handleError);
+          console.log(error);
+          Util.exibirMensagem('Parametros inválidos');
+        }
+      });
   }
 
   getStatus(){

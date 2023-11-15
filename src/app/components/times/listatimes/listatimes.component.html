@@ -10,7 +10,7 @@
 
       <tbody>
         <tr *ngFor="let time of listaTimes">
-          <td>{{time.nomeCompetidor}}</td>
+          <td>{{time.nomeCompetidor | uppercase}}</td>
           <td>{{time.descricaoTime}}</td>
           <td>
             <button

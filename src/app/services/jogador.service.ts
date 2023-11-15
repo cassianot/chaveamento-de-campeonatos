@@ -16,15 +16,15 @@ export class JogadorService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getJogadores(): Promise<Jogador[]> {
-    return await lastValueFrom(
-      this.httpClient.get<Jogador[]>(`${RoutesAPI.JOGADOR}`)
+  getJogadores(): Observable<Jogador[]> {
+    return this.httpClient.get<Jogador[]>(`${RoutesAPI.JOGADOR}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 
-  async getJogadorById(id: number): Promise<Jogador> {
-    return await lastValueFrom(
-      this.httpClient.get<Jogador>(`${RoutesAPI.JOGADOR}/${id}`)
+  getJogadorById(id: number): Observable<Jogador> {
+    return this.httpClient.get<Jogador>(`${RoutesAPI.JOGADOR}/${id}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 

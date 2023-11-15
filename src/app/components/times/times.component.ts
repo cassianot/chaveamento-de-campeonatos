@@ -27,15 +27,17 @@ export class TimesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.timeService
-      .getTimes()
-      .then((times : Time[]) =>{
+    this.timeService.getTimes().subscribe({
+      next: (times) => {
         this.listaTimes = times;
         Util.ordenaListaTimes(this.listaTimes);
-      })
-      .catch((error) =>{
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
         console.log(error);
-      });
+        Util.exibirMensagem('Parâmetros inválidos!');
+      }
+    });
   }
 
   salvarTime(time: Time){

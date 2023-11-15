@@ -17,15 +17,15 @@ export class TimesService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getTimes(): Promise<Time[]> {
-    return await lastValueFrom(
-      this.httpClient.get<Time[]>(`${RoutesAPI.TIME}`)
+  getTimes(): Observable<Time[]> {
+    return this.httpClient.get<Time[]>(`${RoutesAPI.TIME}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 
-  async getTimeById(id: number): Promise<Time> {
-    return await lastValueFrom(
-      this.httpClient.get<Time>(`${RoutesAPI.TIME}/${id}`)
+  getTimeById(id: number): Observable<Time> {
+    return this.httpClient.get<Time>(`${RoutesAPI.TIME}/${id}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 

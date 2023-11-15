@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, lastValueFrom } from 'rxjs';
 import { Campeonato } from '../model/campeonato.model';
 import { RoutesAPI } from '../util/routes-api';
+import { ErrorUtil } from '../util/ErrorUtil';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +16,16 @@ export class CampeonatoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getCampeonatos(): Promise<Campeonato[]> {
-    return await lastValueFrom(
-      this.httpClient.get<Campeonato[]>(`${RoutesAPI.CAMPEONATO}`)
+  getCampeonatos(): Observable<Campeonato[]> {
+    return this.httpClient.get<Campeonato[]>(`${RoutesAPI.CAMPEONATO}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 
-  async getCampeonatoById(id: number): Promise<Campeonato> {
-    return await lastValueFrom(
-      this.httpClient.get<Campeonato>(`${RoutesAPI.CAMPEONATO}/${id}`)
+
+  getCampeonatoById(id: number): Observable<Campeonato> {
+    return this.httpClient.get<Campeonato>(`${RoutesAPI.CAMPEONATO}/${id}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 

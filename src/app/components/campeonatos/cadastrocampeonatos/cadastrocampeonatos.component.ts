@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { catchError } from 'rxjs';
 import { Campeonato } from 'src/app/model/campeonato.model';
 import { Categoria } from 'src/app/model/categoria.model';
 import { CategoriaService } from 'src/app/services/categoria.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
 
 @Component({
   selector: 'app-cadastrocampeonatos',
@@ -28,12 +30,14 @@ export class CadastrocampeonatosComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.categoriaService
-    .getCategorias()
-    .then((c: Categoria[]) => {
-      this.listaCategorias = c;
-    })
-    .catch((error) =>{
-      console.log('Erro ao carregar categorias: ' + error);
+    this.categoriaService.getCategorias().subscribe({
+      next: (categorias) => {
+        this.listaCategorias = categorias;
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
+      }
     });
 
     setTimeout(() => {

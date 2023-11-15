@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, firstValueFrom, lastValueFrom } from 'rxjs';
+import { Observable, catchError, firstValueFrom, lastValueFrom } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { RoutesAPI } from '../util/routes-api';
 import { Categoria } from '../model/categoria.model';
+import { ErrorUtil } from '../util/ErrorUtil';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +17,15 @@ export class CategoriaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getCategorias(): Promise<Categoria[]> {
-    return await lastValueFrom(
-      this.httpClient.get<Categoria[]>(`${RoutesAPI.CATEGORIA}`)
+  getCategorias(): Observable<Categoria[]> {
+    return this.httpClient.get<Categoria[]>(`${RoutesAPI.CATEGORIA}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 
-  async getCategoriaById(id: number): Promise<Categoria> {
-    return await lastValueFrom(
-      this.httpClient.get<Categoria>(`${RoutesAPI.CATEGORIA}/${id}`)
+  getCategoriaById(id: number): Observable<Categoria> {
+    return this.httpClient.get<Categoria>(`${RoutesAPI.CATEGORIA}/${id}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 

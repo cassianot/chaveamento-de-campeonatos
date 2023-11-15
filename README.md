@@ -4,16 +4,13 @@ Este projeto tem como objetivo implementar um software gerador de chaveamento pa
 
 Com as informações, o software fará a geração dos jogos e disponibilizará ao usuário um local onde ele poderá indicar os vencedores de cada jogo, chegando até a final indicando o campeão.
 
-# Protótipo de telas - Figma
-https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?type=design&node-id=3%3A5&mode=design&t=oFvLRi8P61AyVpTJ-1
-
 ## Endereço de Deploy - GitHub Pages
 
 //TODO
 
 ## Protótipo
 
-//TODO
+https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?type=design&node-id=3%3A5&mode=design&t=oFvLRi8P61AyVpTJ-1
 
 ## Checklist
 
@@ -36,9 +33,12 @@ https://www.figma.com/file/xxWqiBEyq9Kjs4b4jvX3XD/Gerenciamento-de-Campeonatos?t
 - [x] Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
 - [x] Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 - [x] Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas.
-- [ ] Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
+- [x] Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
 - [ ] Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 ## Manual de execução
+Após baixar o projeto, execute o comando npm install para instalar os módulos.
 
-Para iniciar o dbjson: json-server --watch dbjson/db.json
+Para iniciar o dbjson (banco de dados): json-server --watch dbjson/db.json
+
+execute ng serve para iniciar o projeto

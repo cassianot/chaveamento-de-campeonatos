@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError } from 'rxjs';
 import { Time } from 'src/app/model/time.model';
 import { TimesService } from 'src/app/services/times.service';
+import { ErrorUtil } from 'src/app/util/ErrorUtil';
 import { Util } from 'src/app/util/util';
 
 @Component({
@@ -26,15 +28,17 @@ export class VisualizatimeComponent {
   }
 
   ngOnInit(){
-    this.timesService
-      .getTimeById(this.timeId)
-      .then((time: Time)=>{
-        this.time
-      })
-      .catch((error)=>{
+    this.timesService.getTimeById(this.timeId).subscribe({
+      next: (time) => {
+        this.time = time;
+      },
+      error: (error) => {
+        catchError(ErrorUtil.handleError);
+        console.log(error);
         Util.exibirMensagem('Parâmetros inválidos!');
         this.router.navigate(['/times']);
-      })
+      }
+    });
   }
 
   getStatus(){

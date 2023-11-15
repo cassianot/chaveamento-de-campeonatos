@@ -4,7 +4,7 @@
     <div *ngFor="let chaveamento of listaChaveamento" class="col s12 m6 l3">
         <div class="card light-blue darken-3">
             <div class="card-content white-text">
-                <span class="card-title">{{chaveamento.Campeonato.nomeCampeonato}}</span>
+                <span class="card-title">{{chaveamento.Campeonato.nomeCampeonato | uppercase}}</span>
                 <hr />
                 <p>
                     {{chaveamento.Campeonato.descricaoCampeonato}}

@@ -10,7 +10,7 @@
 
       <tbody>
         <tr *ngFor="let cat of listaCategorias">
-          <td>{{cat.nomeCategoria}}</td>
+          <td>{{cat.nomeCategoria | uppercase}}</td>
           <td>{{cat.descricaoCategoria}}</td>
           <td>
             <button

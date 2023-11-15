@@ -31,16 +31,16 @@ export class RelatorioCampeonatoComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.gestaoCampeonatoService
-      .getChaveamentos()
-      .then((chaveamento : ChaveamentoCampeonato[]) => {
-        this.listaChaveamento = chaveamento;
-      })
-      .catch((error) => {
+    this.gestaoCampeonatoService.getChaveamentos().subscribe({
+      next: (chaveamentos) => {
+        this.listaChaveamento = chaveamentos;
+      },
+      error: (error) => {
         catchError(ErrorUtil.handleError);
         console.log(error);
         Util.exibirMensagem('Erro ao carregar relatório');
-      });
+      }
+    });
   }
 
   visualizarRelatorio() {

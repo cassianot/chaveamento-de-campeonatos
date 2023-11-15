@@ -16,12 +16,12 @@ export class GerarchaveamentoService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  async getChaveamentos(iniciado: boolean = false): Promise<ChaveamentoCampeonato[]> {
+  getChaveamentos(iniciado: boolean = false): Observable<ChaveamentoCampeonato[]> {
     let query = "";
     if(iniciado)
       query="?iniciado=true"
-    return await lastValueFrom(
-      this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}${query}`)
+    return this.httpClient.get<ChaveamentoCampeonato[]>(`${RoutesAPI.CHAVEAMENTO}${query}`).pipe(
+      catchError(ErrorUtil.handleError)
     );
   }
 

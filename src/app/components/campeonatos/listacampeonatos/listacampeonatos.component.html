@@ -11,8 +11,8 @@
 
       <tbody>
         <tr *ngFor="let campeonato of listaCampeonatos">
-          <td>{{campeonato.nomeCampeonato}}</td>
-          <td>{{campeonato.categoria?.nomeCategoria}}</td>
+          <td>{{campeonato.nomeCampeonato | uppercase}}</td>
+          <td>{{campeonato.categoria?.nomeCategoria | uppercase}}</td>
           <td>{{campeonato.descricaoCampeonato}}</td>
           <td>
             <button

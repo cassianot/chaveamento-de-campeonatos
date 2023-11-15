@@ -1,3 +1,4 @@
+import { UpperCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ChaveamentoCampeonato } from 'src/app/model/chaveamentoCampeonato';
 import { Util } from 'src/app/util/util';
