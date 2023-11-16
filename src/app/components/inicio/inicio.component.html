@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <h5>Campeonatos em andamento</h5>
+    <hr />
+    <div class="row">
+        <div *ngFor="let chaveamento of listaChaveamento" class="col s12 l3 m3">
+            <div class="card red darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">{{chaveamento.Campeonato.nomeCampeonato | uppercase}}</span>
+                    <hr />
+                    <p>
+                        {{chaveamento.Campeonato.descricaoCampeonato}}
+                    </p>
+                    <p>
+                        Status: {{(chaveamento.iniciado == true) ? 'Em andamento' : 'Finalizado'}}
+                    </p>
+                    <p>
+                        Qtde.Grupos: {{chaveamento.Grupos.length}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <a [routerLink]="(['/gestaocampeonato/', chaveamento.id])">Ver detalhes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

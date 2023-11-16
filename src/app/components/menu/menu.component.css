@@ -1,0 +1,11 @@
+nav {
+    height: 100px !important;
+    line-height: 134px !important;
+    background: rgb(33,33,33) !important;
+    background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(33,33,33,1) 46%, rgba(79,0,0,1) 100%) !important;
+}
+
+.brand-logo {
+    font-size: x-large;
+    width: 100%;
+}

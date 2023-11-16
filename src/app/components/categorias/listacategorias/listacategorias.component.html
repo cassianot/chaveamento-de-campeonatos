@@ -1,0 +1,45 @@
+<table class="striped responsive-table">
+  <thead>
+    <tr>
+        <th>Categoria</th>
+        <th>Descrição</th>
+        <th colspan="3">Ação</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let cat of listaCategorias">
+      <td>{{cat.nomeCategoria | uppercase}}</td>
+      <td>{{cat.descricaoCategoria}}</td>
+      <td>
+        <button
+        class="btn waves-effect waves-light red darken-4"
+        type="submit"
+        (click)="ativarDesativarCategoria(cat);"
+      >
+        <div *ngIf="cat.ativo == true; then thenBlock else elseBlock"></div>
+          <ng-template minW #thenBlock>Desativar</ng-template >
+          <ng-template #elseBlock>Ativar</ng-template >
+        </button>
+      </td>
+      <td>
+        <button
+        class="btn waves-effect waves-light red darken-4"
+        type="submit"
+        (click)="editarCategoria(cat);"
+      >
+        Editar
+        </button>
+      </td>
+      <td>
+        <button
+        class="btn waves-effect waves-light red darken-4"
+        type="submit"
+        [routerLink]="['/categorias', cat.id]"
+      >
+        Ver detalhes
+        </button>
+      </td>
+  </tr>
+  </tbody>
+</table>

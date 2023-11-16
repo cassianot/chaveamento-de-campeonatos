@@ -1,0 +1,74 @@
+<div id="modalLogin" class="modal" #modalLogin>
+    <div class="row">
+        <form class="col s12" #formLogin="ngForm" (ngSubmit)="doLogin(formLogin.value)">
+        <h6>Login</h6>
+        <hr />
+        <div class="modal-content">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input
+                    name="email"
+                    id="email"
+                    type="email"
+                    class="validate"
+                    [(ngModel)] = "this.user.email"
+                    #email = "ngModel"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" 
+                    required
+                    />
+                    <label class="active" for="email">Email</label>
+                    <div class="red-text" *ngIf="email.errors?.required && email.touched">
+                        Email é obrigatório
+                    </div>
+                    <div class="red-text" *ngIf="!email.valid && email.touched">
+                        Digite um email valido
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    class="validate"
+                    [(ngModel)] = "this.user.password"
+                    #password = "ngModel"
+                    minlength="8"
+                    required
+                />
+                <label class="active" for="password">Senha</label>
+                <div class="red-text" *ngIf="password.errors?.required && password.touched">
+                    Senha é obrigatória
+                </div>
+                <div class="red-text" *ngIf="password.errors?.minlength&& password.touched">
+                    A senha deve ter no mínimo 8 caracteres
+                </div>
+                </div>
+            </div>
+            <p class="small">
+                User: email@email.com / Senha: 123456789
+                <button
+                    class="btn waves-effect waves-light red darken-4"
+                    (click)="autopreencher()"
+                >
+                Autopreencher
+                </button>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s13">
+                    <button
+                    class="btn waves-effect waves-light red darken-4"
+                    type="submit"
+                    [disabled]="!formLogin.valid"
+                    >
+                    Entrar
+                    </button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>  
+</div>
